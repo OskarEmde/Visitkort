@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Om mig | Oskar Emde</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+            href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap"
+            rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="style.css">
+
+    <script type="importmap">
+        {
+          "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js",
+            "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"
+          }
+        }
+    </script>
+</head>
+
+<body class="about-page">
+
+
+<!-- =====================================================
+     FIXED HAMBURGER BUTTON
+===================================================== -->
+
+<button class="menu-toggle" id="menuToggle" aria-label="Åbn menu">
+    <span></span>
+    <span></span>
+    <span></span>
+</button>
+
+
+<!-- =====================================================
+     SIDE MENU
+===================================================== -->
+
+<aside class="side-menu" id="sideMenu">
+
+    <div class="side-menu-decoration"></div>
+
+    <div class="side-menu-top">
+
+        <span class="side-small">
+            PORTFOLIO
+        </span>
+
+        <h2>
+            Oskar
+            <span>Emde</span>
+        </h2>
+
+    </div>
+
+
+    <nav class="side-navigation">
+
+        <a href="index.html">
+            <span>01</span>
+            Startside
+        </a>
+
+
+        <div class="side-project-group">
+
+            <button class="side-project-button" id="sideProjectButton">
+
+                <div>
+                    <span>02</span>
+                    Projekter
+                </div>
+
+                <span class="side-arrow">+</span>
+
+            </button>
+
+
+            <div class="side-submenu" id="sideSubmenu">
+
+                <a href="websites.html">
+                    Hjemmesider
+                </a>
+
+                <a href="games.html">
+                    Spil
+                </a>
+
+                <a href="other.html">
+                    Andet arbejde
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <a href="about.html" class="active">
+            <span>03</span>
+            Om mig
+        </a>
+
+
+        <a href="contact.html">
+            <span>04</span>
+            Kontakt
+        </a>
+
+    </nav>
+
+
+    <div class="side-menu-bottom">
+
+        <p>
+            Digital portfolio
+        </p>
+
+        <span>
+            © 2026
+        </span>
+
+    </div>
+
+</aside>
+
+
+<div class="menu-overlay" id="menuOverlay"></div>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="main-header">
+
+    <a href="index.html" class="site-title">
+        Oskar Emde
+    </a>
+
+</header>
+
+
+<!-- =====================================================
+     TOP NAVIGATION
+===================================================== -->
+
+<nav class="top-navigation">
+
+    <a href="index.html">
+        Startside
+    </a>
+
+
+    <div class="nav-dropdown">
+
+        <button class="nav-project-button">
+            Projekter
+            <span>⌄</span>
+        </button>
+
+
+        <div class="dropdown-menu">
+
+            <a href="websites.html">
+                Hjemmesider
+            </a>
+
+            <a href="games.html">
+                Spil
+            </a>
+
+            <a href="other.html">
+                Andet arbejde
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <a href="about.html" class="active">
+        Om mig
+    </a>
+
+
+    <a href="contact.html">
+        Kontakt
+    </a>
+
+</nav>
+
+
+<!-- =====================================================
+     ABOUT HERO
+===================================================== -->
+
+<section class="about-hero">
+
+    <div class="about-ambient about-ambient-left"></div>
+    <div class="about-ambient about-ambient-right"></div>
+
+    <div class="particles" id="particles"></div>
+
+
+    <div class="about-hero-inner">
+
+        <div class="about-hero-intro">
+
+        <span class="about-eyebrow">
+            03 · OM MIG
+        </span>
+
+            <h1>
+                Oskar
+                <span>Emde</span>
+            </h1>
+
+            <p class="about-role">
+                Multimediedesigner · Kreativ udvikler · Digital problemløser
+            </p>
+
+            <p class="about-introduction">
+                Jeg arbejder i krydsfeltet mellem design, teknologi og kreative
+                idéer. Jeg interesserer mig især for webudvikling, spil,
+                grafisk design og digitale oplevelser, hvor det visuelle
+                udtryk og funktionaliteten arbejder sammen.
+            </p>
+
+            <div class="about-hero-actions">
+
+                <a href="#profile" class="about-primary-button">
+                    Lær mig at kende
+                    <span>↓</span>
+                </a>
+
+                <a href="contact.html" class="about-secondary-button">
+                    Kontakt mig
+                    <span>↗</span>
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="about-portrait-wrap">
+            <div class="about-portrait-frame">
+                <img
+                        src="assets/images/oskarprofil.png"
+                        alt="Portræt af Oskar Emde"
+                        class="about-portrait"
+                >
+            </div>
+        </div>
+
+
+        <div class="about-identity-card">
+
+        <span class="identity-number">
+            01
+        </span>
+
+            <div class="identity-line"></div>
+
+            <span class="identity-label">
+            BASE
+        </span>
+            <strong>Hedehusene</strong>
+
+            <span class="identity-label">
+            UDDANNELSE
+        </span>
+            <strong>Multimediedesign</strong>
+
+            <span class="identity-label">
+            FOKUS
+        </span>
+            <strong>Web · Spil · Design</strong>
+
+            <span class="identity-label">
+            STATUS
+        </span>
+            <strong class="status-available">
+                Studerende
+            </strong>
+
+        </div>
+
+    </div>
+
+
+    <div class="about-scroll">
+        <span>SCROLL TO DISCOVER</span>
+        <div></div>
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     PROFILE
+===================================================== -->
+
+<section class="about-profile section-divider" id="profile">
+
+    <div class="about-section-heading">
+
+        <span class="about-section-number">
+            01
+        </span>
+
+        <div>
+            <span class="about-eyebrow">
+                PROFIL
+            </span>
+
+            <h2>
+                Hvem er jeg?
+            </h2>
+        </div>
+
+    </div>
+
+
+    <div class="profile-layout">
+
+        <div class="profile-main">
+
+            <p class="profile-lead">
+                Jeg er en engageret og nysgerrig multimediedesignstuderende,
+                der godt kan lide at omsætte idéer til noget, man faktisk
+                kan se, bruge og interagere med.
+            </p>
+
+            <div class="profile-copy">
+
+                <p>
+                    Jeg har stor interesse for både den kreative og tekniske
+                    side af digitale projekter. Det kan være alt fra at
+                    designe og kode en hjemmeside til at udvikle et spil,
+                    arbejde med 3D eller skabe grafisk indhold.
+                </p>
+
+                <p>
+                    Før jeg begyndte på multimediedesign, havde jeg allerede
+                    erfaring fra flere forskellige arbejdspladser. Det har
+                    lært mig at møde til tiden, tage ansvar, arbejde
+                    selvstændigt og samtidig være en del af et hold.
+                </p>
+
+                <p>
+                    Jeg er typen, der gerne undersøger, hvordan ting virker,
+                    eksperimenterer med nye værktøjer og bliver ved, indtil
+                    resultatet fungerer, som jeg havde forestillet mig.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <aside class="profile-quote">
+
+            <span class="quote-mark">
+                “
+            </span>
+
+            <blockquote>
+                Det fedeste ved et projekt er, når en idé går fra kun at
+                eksistere i hovedet til noget, man faktisk kan opleve.
+            </blockquote>
+
+            <span class="quote-name">
+                — Oskar Emde
+            </span>
+
+        </aside>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     WHAT I DO
+===================================================== -->
+
+<section class="about-expertise section-divider">
+
+    <div class="about-section-heading">
+
+        <span class="about-section-number">
+            02
+        </span>
+
+        <div>
+            <span class="about-eyebrow">
+                HVAD JEG ARBEJDER MED
+            </span>
+
+            <h2>
+                Mine områder
+            </h2>
+        </div>
+
+    </div>
+
+
+    <div class="expertise-grid">
+
+
+        <article class="expertise-card">
+
+            <div class="expertise-top">
+                <span>01</span>
+                <span class="expertise-symbol">&lt;/&gt;</span>
+            </div>
+
+            <h3>
+                Webudvikling
+            </h3>
+
+            <p>
+                Design og udvikling af responsive hjemmesider med fokus på
+                visuel identitet, brugeroplevelse og interaktion.
+            </p>
+
+            <div class="expertise-tags">
+                <span>HTML</span>
+                <span>CSS</span>
+                <span>JavaScript</span>
+            </div>
+
+        </article>
+
+
+        <article class="expertise-card">
+
+            <div class="expertise-top">
+                <span>02</span>
+                <span class="expertise-symbol">◇</span>
+            </div>
+
+            <h3>
+                UI & Design
+            </h3>
+
+            <p>
+                Wireframes, prototyper, interfaces og grafiske universer
+                udviklet med fokus på både stil og funktion.
+            </p>
+
+            <div class="expertise-tags">
+                <span>Figma</span>
+                <span>Photoshop</span>
+                <span>Illustrator</span>
+            </div>
+
+        </article>
+
+
+        <article class="expertise-card">
+
+            <div class="expertise-top">
+                <span>03</span>
+                <span class="expertise-symbol">✦</span>
+            </div>
+
+            <h3>
+                Spil & Interaktion
+            </h3>
+
+            <p>
+                Udvikling af mindre spil og interaktive oplevelser med
+                fokus på gameplay, feedback og brugerens oplevelse.
+            </p>
+
+            <div class="expertise-tags">
+                <span>JavaScript</span>
+                <span>Game Design</span>
+                <span>UX</span>
+            </div>
+
+        </article>
+
+
+        <article class="expertise-card">
+
+            <div class="expertise-top">
+                <span>04</span>
+                <span class="expertise-symbol">△</span>
+            </div>
+
+            <h3>
+                3D & Kreativt
+            </h3>
+
+            <p>
+                Eksperimenter med 3D-modeller, produktdesign og visuelle
+                elementer, både til web og fysiske projekter.
+            </p>
+
+            <div class="expertise-tags">
+                <span>3D</span>
+                <span>Prototyping</span>
+                <span>3D-print</span>
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     SOFTWARE
+===================================================== -->
+
+<section class="about-tools section-divider">
+
+    <div class="about-section-heading">
+
+        <span class="about-section-number">
+            03
+        </span>
+
+        <div>
+            <span class="about-eyebrow">
+                TOOLBOX
+            </span>
+
+            <h2>
+                Værktøjer
+            </h2>
+        </div>
+
+    </div>
+
+
+    <div class="tools-grid">
+
+        <div class="tool-item">
+            <span>01</span>
+            <strong>HTML / CSS</strong>
+            <small>Web development</small>
+        </div>
+
+        <div class="tool-item">
+            <span>02</span>
+            <strong>JavaScript</strong>
+            <small>Interaktion</small>
+        </div>
+
+        <div class="tool-item">
+            <span>03</span>
+            <strong>Figma</strong>
+            <small>UI / UX</small>
+        </div>
+
+        <div class="tool-item">
+            <span>04</span>
+            <strong>Photoshop</strong>
+            <small>Grafisk design</small>
+        </div>
+
+        <div class="tool-item">
+            <span>05</span>
+            <strong>Illustrator</strong>
+            <small>Vector design</small>
+        </div>
+
+        <div class="tool-item">
+            <span>06</span>
+            <strong>Premiere Pro</strong>
+            <small>Video</small>
+        </div>
+
+        <div class="tool-item">
+            <span>07</span>
+            <strong>After Effects</strong>
+            <small>Motion</small>
+        </div>
+
+        <div class="tool-item">
+            <span>08</span>
+            <strong>GitHub</strong>
+            <small>Version control</small>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     EXPERIENCE + EDUCATION
+===================================================== -->
+
+<section class="about-resume section-divider">
+
+    <div class="about-section-heading">
+
+        <span class="about-section-number">
+            04
+        </span>
+
+        <div>
+            <span class="about-eyebrow">
+                MIN REJSE
+            </span>
+
+            <h2>
+                Erfaring & uddannelse
+            </h2>
+        </div>
+
+    </div>
+
+
+    <div class="resume-columns">
+
+
+        <!-- UDDANNELSE -->
+
+        <div class="resume-column">
+
+            <div class="resume-column-title">
+
+                <span>EDUCATION</span>
+
+                <h3>
+                    Uddannelse
+                </h3>
+
+            </div>
+
+
+            <div class="timeline">
+
+
+                <article class="timeline-item active">
+
+                    <div class="timeline-marker"></div>
+
+                    <span class="timeline-date">
+                        2026 — 2028
+                    </span>
+
+                    <h4>
+                        Multimediedesign
+                    </h4>
+
+                    <p class="timeline-place">
+                        Zealand · Køge
+                    </p>
+
+                    <p>
+                        Webudvikling, digitalt design, brugeroplevelser,
+                        kommunikation og interaktive løsninger.
+                    </p>
+
+                </article>
+
+
+                <article class="timeline-item">
+
+                    <div class="timeline-marker"></div>
+
+                    <span class="timeline-date">
+                        2023 — 2024
+                    </span>
+
+                    <h4>
+                        Ernæring og Sundhed
+                    </h4>
+
+                    <p class="timeline-place">
+                        Absalon · Slagelse
+                    </p>
+
+                    <p>
+                        Påbegyndt uddannelse inden skiftet til den mere
+                        kreative og digitale retning.
+                    </p>
+
+                </article>
+
+
+                <article class="timeline-item">
+
+                    <div class="timeline-marker"></div>
+
+                    <span class="timeline-date">
+                        2021 — 2023
+                    </span>
+
+                    <h4>
+                        HF
+                    </h4>
+
+                    <p class="timeline-place">
+                        Stenhus Gymnasium · Holbæk
+                    </p>
+
+                </article>
+
+
+                <article class="timeline-item">
+
+                    <div class="timeline-marker"></div>
+
+                    <span class="timeline-date">
+                        2019 — 2020
+                    </span>
+
+                    <h4>
+                        GF1 + GF2
+                    </h4>
+
+                    <p class="timeline-place">
+                        EUC Nordvestsjælland · Holbæk
+                    </p>
+
+                </article>
+
+            </div>
+
+        </div>
+
+
+        <!-- ERHVERV -->
+
+        <div class="resume-column">
+
+            <div class="resume-column-title">
+
+                <span>EXPERIENCE</span>
+
+                <h3>
+                    Erhvervserfaring
+                </h3>
+
+            </div>
+
+
+            <div class="timeline">
+
+
+                <article class="timeline-item active">
+
+                    <div class="timeline-marker"></div>
+
+                    <span class="timeline-date">
+                        2025 — NU
+                    </span>
+
+                    <h4>
+                        Arla
+                    </h4>
+
+                    <p class="timeline-place">
+                        Ishøj · Sommerjob / deltid
+                    </p>
+
+                    <p>
+                        Erfaring med fysisk arbejde, ansvar og samarbejde
+                        i en travl hverdag.
+                    </p>
+
+                </article>
+
+
+                <article class="timeline-item">
+
+                    <div class="timeline-marker"></div>
+
+                    <span class="timeline-date">
+                        2018 — NU
+                    </span>
+
+                    <h4>
+                        Lejnemt.dk
+                    </h4>
+
+                    <p class="timeline-place">
+                        Svinninge · Sommerjob / deltid
+                    </p>
+
+                    <p>
+                        Praktisk arbejde med ansvar, selvstændige opgaver
+                        og samarbejde.
+                    </p>
+
+                </article>
+
+
+                <article class="timeline-item">
+
+                    <div class="timeline-marker"></div>
+
+                    <span class="timeline-date">
+                        2020 — 2021
+                    </span>
+
+                    <h4>
+                        SuperBrugsen
+                    </h4>
+
+                    <p class="timeline-place">
+                        Svinninge
+                    </p>
+
+                </article>
+
+
+                <article class="timeline-item">
+
+                    <div class="timeline-marker"></div>
+
+                    <span class="timeline-date">
+                        2019 — 2020
+                    </span>
+
+                    <h4>
+                        Arla
+                    </h4>
+
+                    <p class="timeline-place">
+                        Ishøj · Deltid
+                    </p>
+
+                </article>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     PERSONAL
+===================================================== -->
+
+<section class="about-personal section-divider">
+
+    <div class="about-section-heading">
+
+        <span class="about-section-number">
+            05
+        </span>
+
+        <div>
+            <span class="about-eyebrow">
+                BAG SKÆRMEN
+            </span>
+
+            <h2>
+                Når jeg ikke designer
+            </h2>
+        </div>
+
+    </div>
+
+
+    <div class="personal-layout">
+
+        <div class="personal-text">
+
+            <p>
+                En stor del af min fritid handler om sport – især fodbold.
+                Jeg interesserer mig samtidig for gaming, teknologi,
+                3D-print og forskellige projekter, hvor jeg kan bygge,
+                designe eller eksperimentere med noget nyt.
+            </p>
+
+            <p>
+                Kombinationen af sport, kreativitet og teknik betyder også,
+                at jeg både trives med samarbejde og med at fordybe mig
+                selvstændigt i et problem.
+            </p>
+
+        </div>
+
+
+        <div class="interest-list">
+
+            <div>
+                <span>01</span>
+                <strong>Fodbold</strong>
+            </div>
+
+            <div>
+                <span>02</span>
+                <strong>Gaming</strong>
+            </div>
+
+            <div>
+                <span>03</span>
+                <strong>3D & design</strong>
+            </div>
+
+            <div>
+                <span>04</span>
+                <strong>Teknologi</strong>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     CTA
+===================================================== -->
+
+<section class="about-cta">
+
+    <span class="about-eyebrow">
+        NÆSTE KAPITEL
+    </span>
+
+    <h2>
+        Skal vi skabe noget
+        <span>sammen?</span>
+    </h2>
+
+    <p>
+        Har du et projekt, en idé eller vil du bare høre mere om mit arbejde,
+        så er du altid velkommen til at tage kontakt.
+    </p>
+
+    <a href="contact.html" class="about-cta-button">
+        Kontakt mig
+        <span>↗</span>
+    </a>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="about-footer">
+
+    <a href="index.html">
+        Oskar Emde
+    </a>
+
+    <p>
+        Multimediedesign · Digital Portfolio
+    </p>
+
+    <span>
+        © 2026
+    </span>
+
+</footer>
+
+
+<script type="module" src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="da">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Oskar Emde | Portfolio</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"
+      }
+    }
+  </script>
+
+</head>
+
+<body>
+
+
+<!-- =====================================================
+     FIXED HAMBURGER BUTTON
+===================================================== -->
+
+<button class="menu-toggle" id="menuToggle" aria-label="Åbn menu">
+
+  <span></span>
+  <span></span>
+  <span></span>
+
+</button>
+
+
+<!-- =====================================================
+     SIDE MENU
+===================================================== -->
+
+<aside class="side-menu" id="sideMenu">
+
+  <div class="side-menu-decoration"></div>
+
+  <div class="side-menu-top">
+
+        <span class="side-small">
+            PORTFOLIO
+        </span>
+
+    <h2>
+      Oskar
+      <span>Emde</span>
+    </h2>
+
+  </div>
+
+
+  <nav class="side-navigation">
+
+    <a href="index.html">
+      <span>01</span>
+      Startside
+    </a>
+
+
+    <div class="side-project-group">
+
+      <button class="side-project-button" id="sideProjectButton">
+
+        <div>
+          <span>02</span>
+          Projekter
+        </div>
+
+        <span class="side-arrow">+</span>
+
+      </button>
+
+
+      <div class="side-submenu" id="sideSubmenu">
+
+        <a href="websites.html">
+          Hjemmesider
+        </a>
+
+        <a href="games.html">
+          Spil
+        </a>
+
+        <a href="other.html">
+          Andet arbejde
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <a href="about.html">
+      <span>03</span>
+      Om mig
+    </a>
+
+
+    <a href="contact.html">
+      <span>04</span>
+      Kontakt
+    </a>
+
+  </nav>
+
+
+  <div class="side-menu-bottom">
+
+    <p>
+      Digital portfolio
+    </p>
+
+    <span>
+            © 2026
+        </span>
+
+  </div>
+
+</aside>
+
+
+<!-- Overlay når menuen er åben -->
+
+<div class="menu-overlay" id="menuOverlay"></div>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="main-header">
+
+  <a href="index.html" class="site-title">
+    Oskar Emde
+  </a>
+
+</header>
+
+
+<!-- =====================================================
+     TOP NAVIGATION
+===================================================== -->
+
+<nav class="top-navigation">
+
+  <a href="index.html" class="active">
+    Startside
+  </a>
+
+
+  <div class="nav-dropdown">
+
+    <button class="nav-project-button">
+      Projekter
+      <span>⌄</span>
+    </button>
+
+
+    <div class="dropdown-menu">
+
+      <a href="websites.html">
+        Hjemmesider
+      </a>
+
+      <a href="games.html">
+        Spil
+      </a>
+
+      <a href="other.html">
+        Andet arbejde
+      </a>
+
+    </div>
+
+  </div>
+
+
+  <a href="about.html">
+    Om mig
+  </a>
+
+
+  <a href="contact.html">
+    Kontakt
+  </a>
+
+</nav>
+
+
+<!-- =====================================================
+     HERO VIDEO
+===================================================== -->
+
+<section class="hero">
+
+  <!--
+      Læg din video i:
+      video/hero.mp4
+  -->
+
+  <video class="hero-video"
+         autoplay
+         muted
+         loop
+         playsinline>
+
+    <source src="assets/video/hero.mp4" type="video/mp4">
+
+  </video>
+
+
+  <!-- mørkt overlay -->
+
+  <div class="hero-overlay"></div>
+
+
+  <!-- glød -->
+
+  <div class="hero-glow glow-left"></div>
+  <div class="hero-glow glow-right"></div>
+
+
+  <!-- små fantasy-partikler -->
+
+  <div class="particles" id="particles"></div>
+
+
+  <!-- indhold -->
+
+  <div class="hero-content">
+
+        <span class="hero-label">
+            DIGITAL PORTFOLIO
+        </span>
+
+
+    <div class="hero-title-frame">
+
+      <span class="frame-decoration left"></span>
+
+      <h1>
+        Creative
+        <span>Worlds</span>
+      </h1>
+
+      <span class="frame-decoration right"></span>
+
+    </div>
+
+
+    <p>
+      Websites, spil og kreative projekter
+      samlet i ét digitalt univers.
+    </p>
+
+
+    <a href="#projects-preview" class="hero-button">
+
+      Udforsk mit arbejde
+
+      <span>↓</span>
+
+    </a>
+
+  </div>
+
+
+  <!-- scroll-indikator -->
+
+  <div class="hero-scroll">
+
+        <span>
+            SCROLL
+        </span>
+
+    <div class="scroll-line"></div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     3D PROJECT CAROUSEL · KATEGORIER
+===================================================== -->
+
+<section class="project-showcase" id="projects-preview">
+
+  <div class="project-showcase-heading">
+    <span class="preview-small">01 · SELECTED WORK</span>
+
+    <h2>Projekter</h2>
+
+    <p>
+      Udforsk mine tre projektområder i den interaktive 3D-karrusel.
+      Klik på den aktive ramme for at åbne Spil, Hjemmesider eller Andet arbejde.
+    </p>
+  </div>
+
+  <div class="gothic-carousel-shell">
+
+    <div
+            class="gothic-carousel"
+            id="gothicCarousel"
+            aria-label="3D slideshow med projektkategorier"
+    ></div>
+
+    <div class="carousel-fade carousel-fade-left"></div>
+    <div class="carousel-fade carousel-fade-right"></div>
+
+    <button
+            class="carousel-arrow carousel-arrow-left"
+            id="carouselPrev"
+            type="button"
+            aria-label="Forrige projekt"
+    >
+      <span>←</span>
+    </button>
+
+    <button
+            class="carousel-arrow carousel-arrow-right"
+            id="carouselNext"
+            type="button"
+            aria-label="Næste projekt"
+    >
+      <span>→</span>
+    </button>
+
+    <div class="carousel-project-info">
+      <span class="carousel-project-number" id="carouselProjectNumber">
+        01 / 03
+      </span>
+
+      <h3 id="carouselProjectTitle">
+        Spil
+      </h3>
+
+      <p id="carouselProjectCategory">
+        Projektkategori · Games
+      </p>
+    </div>
+
+    <div class="carousel-dots" id="carouselDots"></div>
+
+  </div>
+
+</section>
+
+
+<script type="module" src="script.js"></script>
+
+</body>
+
+</html>
