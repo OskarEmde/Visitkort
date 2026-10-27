@@ -140,6 +140,143 @@ window.addEventListener("scroll", () => {
 
 
 /* =========================================================
+   ABOUT PAGE SCROLL EXPERIENCE
+========================================================= */
+
+const aboutPage =
+    document.querySelector(".about-page");
+
+if (aboutPage) {
+
+    const progressTrack =
+        document.createElement("div");
+
+    const progressFill =
+        document.createElement("div");
+
+    progressTrack.className =
+        "about-progress-track";
+
+    progressFill.className =
+        "about-progress-fill";
+
+    progressTrack.appendChild(
+        progressFill
+    );
+
+    aboutPage.appendChild(
+        progressTrack
+    );
+
+
+    const revealItems =
+        document.querySelectorAll(
+            [
+                ".quickfacts-intro",
+                ".quickfact-card",
+                ".about-section-heading",
+                ".profile-main",
+                ".profile-quote",
+                ".profile-highlights div",
+                ".expertise-card",
+                ".tool-item",
+                ".resume-column",
+                ".timeline-item",
+                ".personal-text",
+                ".interest-list div",
+                ".about-cta > *"
+            ].join(", ")
+        );
+
+    revealItems.forEach(
+        (item, index) => {
+
+            item.classList.add(
+                "about-reveal"
+            );
+
+            item.style.setProperty(
+                "--reveal-delay",
+                `${(index % 5) * 70}ms`
+            );
+
+        }
+    );
+
+
+    function updateAboutProgress() {
+
+        const pageHeight =
+            document.documentElement.scrollHeight -
+            window.innerHeight;
+
+        const progress =
+            pageHeight > 0
+                ? window.scrollY / pageHeight
+                : 0;
+
+        progressFill.style.transform =
+            `scaleY(${Math.min(Math.max(progress, 0), 1)})`;
+    }
+
+
+    if ("IntersectionObserver" in window) {
+
+        const revealObserver =
+            new IntersectionObserver(
+                entries => {
+
+                    entries.forEach(
+                        entry => {
+
+                            if (!entry.isIntersecting) {
+                                return;
+                            }
+
+                            entry.target.classList.add(
+                                "is-visible"
+                            );
+
+                            revealObserver.unobserve(
+                                entry.target
+                            );
+
+                        }
+                    );
+
+                },
+                {
+                    threshold: 0.16,
+                    rootMargin: "0px 0px -8% 0px"
+                }
+            );
+
+        revealItems.forEach(
+            item => revealObserver.observe(item)
+        );
+
+    } else {
+
+        revealItems.forEach(
+            item => item.classList.add("is-visible")
+        );
+
+    }
+
+
+    window.addEventListener(
+        "scroll",
+        updateAboutProgress,
+        {
+            passive: true
+        }
+    );
+
+    updateAboutProgress();
+}
+
+
+/* =========================================================
    GOTHIC 3D PROJECT CAROUSEL
 ========================================================= */
 
@@ -175,23 +312,23 @@ if (carouselElement) {
     const projects = [
 
         {
-            title: "Spil",
+            title: "Racerspil",
             category: "Spil & interaktive oplevelser",
             image: "assets/images/project-02.png",
             link: "games.html"
         },
 
         {
-            title: "Hjemmesider",
+            title: "Responsive Breakout",
             category: "Webdesign & udvikling",
-            image: "assets/images/project-01.png",
+            image: "assets/images/project-04.png",
             link: "websites.html"
         },
 
         {
-            title: "Andet arbejde",
+            title: "Ye Who Enter Here",
             category: "Design · 3D · Kreativt arbejde",
-            image: "assets/images/project-05.png",
+            image: "assets/images/project-03.png",
             link: "other.html"
         }
 
