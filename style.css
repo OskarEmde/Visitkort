@@ -4,11 +4,11 @@
 
 :root {
 
-  --bg-dark: #0a0f0b;
-  --bg-green: #101810;
+  --bg-dark: #04110e;
+  --bg-green: #071814;
 
-  --forest-dark: #172219;
-  --forest: #26382a;
+  --forest-dark: #0a1d18;
+  --forest: #113028;
 
   --moss: #718062;
   --olive: #97946a;
@@ -77,8 +77,8 @@ button {
   background:
           linear-gradient(
                   180deg,
-                  #131c15,
-                  #0d140f
+                  #0b1b16,
+                  #071510
           );
 
   display: flex;
@@ -166,7 +166,7 @@ button {
   border-radius: 50%;
 
   background:
-          rgba(11, 17, 12, 0.86);
+          rgba(6, 20, 16, 0.86);
 
   backdrop-filter: blur(15px);
 
@@ -210,7 +210,7 @@ button {
 
 .menu-toggle:hover span {
 
-  background: #101310;
+  background: #07120e;
 
 }
 
@@ -251,7 +251,7 @@ button {
   min-height: 58px;
 
   background:
-          rgba(24, 35, 26, 0.97);
+          rgba(10, 28, 22, 0.97);
 
   display: flex;
 
@@ -393,7 +393,7 @@ button {
   width: 220px;
 
   background:
-          rgba(14, 22, 16, 0.97);
+          rgba(7, 24, 19, 0.97);
 
   border:
           1px solid
@@ -501,11 +501,21 @@ button {
 
   background:
           radial-gradient(
-                  circle at 20% 50%,
-                  #27372a,
-                  transparent 45%
+                  circle at 20% 48%,
+                  rgba(14, 62, 49, 0.34),
+                  transparent 46%
           ),
-          #0b110d;
+          radial-gradient(
+                  circle at 84% 18%,
+                  rgba(9, 41, 33, 0.26),
+                  transparent 32%
+          ),
+          linear-gradient(
+                  180deg,
+                  #06120f 0%,
+                  #04110e 62%,
+                  #04110e 100%
+          );
 
 }
 
@@ -740,7 +750,7 @@ button {
 
   filter: blur(150px);
 
-  opacity: 0.12;
+  opacity: 0.08;
 
   pointer-events: none;
 
@@ -950,7 +960,7 @@ button {
                   transparent 35%
           ),
 
-          #0c130e;
+          #071611;
 
   border-right:
           1px solid
@@ -1443,38 +1453,37 @@ button {
 .project-showcase {
   position: relative;
   min-height: 980px;
-  padding: 120px 0 90px;
+  margin-top: -1px;
+  padding: 132px 0 90px;
   overflow: hidden;
 
   background:
           radial-gradient(
-                  circle at 50% 42%,
-                  rgba(113, 128, 98, 0.13),
-                  transparent 33%
+                  circle at 50% 20%,
+                  rgba(13, 54, 43, 0.23),
+                  transparent 28%
+          ),
+          radial-gradient(
+                  circle at 50% 58%,
+                  rgba(10, 40, 32, 0.16),
+                  transparent 34%
           ),
           radial-gradient(
                   circle at 50% 100%,
-                  rgba(167, 124, 73, 0.10),
+                  rgba(167, 124, 73, 0.08),
                   transparent 38%
           ),
-          var(--bg-dark);
+          linear-gradient(
+                  to bottom,
+                  #04110e 0%,
+                  #04110e 10%,
+                  #05140f 30%,
+                  var(--bg-dark) 100%
+          );
 }
 
 .project-showcase::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 8vw;
-  right: 8vw;
-  height: 1px;
-
-  background:
-          linear-gradient(
-                  to right,
-                  transparent,
-                  rgba(200, 157, 96, 0.32),
-                  transparent
-          );
+  content: none;
 }
 
 .project-showcase-heading {
@@ -1806,9 +1815,9 @@ button {
           ),
           linear-gradient(
                   135deg,
-                  #0a0f0b,
-                  #101810 55%,
-                  #0a0f0b
+                  #06120f,
+                  #0a1915 55%,
+                  #06120f
           );
 
   border-bottom:
@@ -2446,8 +2455,8 @@ button {
   background:
           linear-gradient(
                   180deg,
-                  #0d140f,
-                  #0a0f0b
+                  #071510,
+                  #06120f
           );
 }
 
@@ -3040,7 +3049,7 @@ button {
 
   justify-content: flex-end;
 
-  background: #0d140f;
+  background: #071510;
 
   overflow: hidden;
 
@@ -3526,7 +3535,7 @@ button {
                   rgba(113, 128, 98, 0.14),
                   transparent 34%
           ),
-          #0b110d;
+          #06120f;
 
   border-top:
           1px solid
@@ -3675,7 +3684,7 @@ button {
 
   gap: 30px;
 
-  background: #080c09;
+  background: #05100d;
 
   border-top:
           1px solid
@@ -3977,4 +3986,238 @@ button {
             25px;
   }
 
+}
+
+/* =========================================================
+   HERO VIDEO – komplet video, lydknap og bundplaceret CTA
+========================================================= */
+.hero {
+  height: calc(100vh - 173px);
+  height: calc(100dvh - 173px);
+  min-height: 0;
+  isolation: isolate;
+}
+
+.hero-video {
+  object-fit: contain; /* Vis hele videoen uden at beskære kanterne */
+  object-position: center;
+  background: #06120f;
+}
+
+/* Mere gennemsigtig toning, så videoen fortsat er tydelig
+   og blender bedre ned i næste sektion */
+.hero-overlay {
+  pointer-events: none;
+  background: linear-gradient(to bottom,
+    rgba(6, 18, 15, 0.08) 0%,
+    rgba(6, 18, 15, 0.10) 54%,
+    rgba(4, 17, 14, 0.42) 82%,
+    rgba(4, 17, 14, 0.78) 100%);
+}
+
+.hero-content {
+  position: absolute;
+  left: 50%;
+  bottom: 29px;
+  transform: translateX(-50%);
+  width: max-content;
+  max-width: calc(100% - 220px);
+  text-align: center;
+  z-index: 6;
+}
+
+.hero-button {
+  margin-top: 0;
+  padding: 12px 4px;
+}
+
+.hero-sound-button {
+  position: absolute;
+  top: 25px;
+  right: 30px;
+  z-index: 7;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-width: 112px;
+  min-height: 44px;
+  padding: 10px 14px;
+  color: var(--cream);
+  border: 1px solid rgba(200, 157, 96, 0.45);
+  border-radius: 24px;
+  background: rgba(6, 20, 16, 0.78);
+  backdrop-filter: blur(12px);
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.hero-sound-button:hover,
+.hero-sound-button:focus-visible {
+  background: rgba(20, 54, 40, 0.95);
+  border-color: var(--gold);
+}
+
+.sound-icon { width: 19px; height: 19px; flex: none; }
+.sound-icon-on { display: none; }
+.hero-sound-button.sound-on .sound-icon-on { display: block; }
+.hero-sound-button.sound-on .sound-icon-off { display: none; }
+.sound-button-text { font-size: 10px; letter-spacing: 1.5px; white-space: nowrap; }
+
+@media (max-width: 750px) {
+  .hero {
+    height: calc(100vh - 147px);
+    height: calc(100dvh - 147px);
+    min-height: 0;
+  }
+  .hero-content {
+    bottom: 20px;
+    max-width: calc(100% - 36px);
+  }
+  .hero-button { font-size: 10px; letter-spacing: 1.6px; }
+  .hero-sound-button {
+    top: 14px;
+    right: 14px;
+    min-width: 44px;
+    width: 44px;
+    height: 44px;
+    padding: 10px;
+  }
+  .sound-button-text { display: none; }
+}
+
+/* Videobaggrund – samme mørke, kølige grøn som introvideoen.
+   Den ses kun, når hele videoen vises med object-fit: contain. */
+.hero { background-color: #04110e; }
+.hero-video { background: linear-gradient(180deg, #06120f 0%, #04110e 100%); }
+
+
+/* =========================================================
+   NATURTEMA V3 – SAMMENHÆNGENDE SKOVGRØN, INGEN GLOW
+========================================================= */
+:root {
+  --bg-dark: #04130f;
+  --bg-green: #071913;
+  --forest-dark: #091e17;
+  --forest: #123126;
+  --moss: #66745c;
+  --olive: #918d65;
+}
+
+body, .about-page { background-color: var(--bg-dark); }
+.main-header {
+  background: linear-gradient(180deg, #081b15 0%, #061711 100%);
+}
+.top-navigation { background: #091d16; }
+
+/* Glød fjernes – kun den rene mørkegrønne baggrund og dekorative linjer */
+.hero-glow, .about-ambient { display: none !important; }
+.hero {
+  --video-side-space: 0px;
+  background: #04130f;
+}
+.hero-video { background: transparent; }
+.hero-overlay {
+  background: linear-gradient(to bottom,
+    rgba(4,19,15,0.035) 0%,
+    rgba(4,19,15,0.025) 62%,
+    rgba(4,19,15,0.28) 88%,
+    rgba(4,19,15,0.62) 100%);
+}
+
+/* Træsøjler fylder KUN ledige områder ved object-fit: contain. */
+.video-side-ornament {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: var(--video-side-space);
+  z-index: 2;
+  pointer-events: none;
+  overflow: hidden;
+  background: #04130f;
+  transition: width 0.18s ease-out;
+}
+.video-side-left { left: 0; }
+.video-side-right { right: 0; transform: scaleX(-1); }
+.video-side-ornament::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url('assets/images/ancient-tree.svg');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  opacity: .92;
+}
+.video-side-ornament::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, transparent 65%, #04130f 100%);
+  pointer-events: none;
+}
+
+/* Dekorativ gotisk adskillelse mellem heroen og projekterne. */
+.project-showcase {
+  margin-top: 0;
+  padding-top: 145px;
+  background: #04130f;
+}
+.project-showcase::before {
+  content: "";
+  position: absolute;
+  display: block;
+  height: 2px;
+  top: 0;
+  left: 5%;
+  right: 5%;
+  background: linear-gradient(to right,
+    transparent 0%, rgba(150,127,77,.26) 16%,
+    rgba(192,158,95,.62) 50%, rgba(150,127,77,.26) 84%,
+    transparent 100%);
+  z-index: 8;
+}
+.project-showcase::after {
+  content: "❖";
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9;
+  font-family: "Cinzel", serif;
+  font-size: 26px;
+  line-height: 26px;
+  color: #a88d58;
+  background: #04130f;
+  padding: 0 23px;
+  text-shadow: none;
+}
+
+/* Om mig – samme grønne nuancer og uden lyse, udtværede baggrundsgløder. */
+.about-hero,
+.about-quickfacts,
+.about-profile,
+.about-expertise,
+.about-tools,
+.about-resume,
+.about-personal,
+.about-cta {
+  background: #04130f;
+}
+.about-hero { border-bottom: 0; }
+.about-hero::before,
+.about-hero::after { opacity: .45; }
+.about-cta { border-top-color: rgba(169,139,82,.24); }
+.about-footer { background: #061711; }
+
+/* Ens, underspillede adskillere på Om mig-siden. */
+.section-divider::before {
+  background: linear-gradient(to right, transparent,
+    rgba(177,147,85,.35) 30%, rgba(177,147,85,.35) 70%, transparent);
+}
+@media (max-width: 750px) {
+  .project-showcase { padding-top: 100px; }
+  .video-side-ornament::before { opacity: .8; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .video-side-ornament { transition: none; }
 }

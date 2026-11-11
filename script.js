@@ -116,27 +116,71 @@ if (particleContainer) {
 
 
 /* =========================================================
-   HERO PARALLAX
+   VIDEO SIDEORNAMENTER
+   Mål det synlige videobillede (object-fit: contain), så træerne
+   kun tegnes på de frie sider og forsvinder uden plads.
 ========================================================= */
+function updateHeroSideOrnaments() {
+    const hero = document.querySelector('.hero');
+    const video = document.querySelector('#heroVideo');
+    if (!hero || !video) return;
 
-const heroContent =
-    document.querySelector(".hero-content");
-
-window.addEventListener("scroll", () => {
-
-    if (!heroContent) {
+    const box = video.getBoundingClientRect();
+    const vw = video.videoWidth;
+    const vh = video.videoHeight;
+    if (!vw || !vh || !box.width || !box.height) {
+        hero.style.setProperty('--video-side-space', '0px');
         return;
     }
 
-    const scroll =
-        window.scrollY;
+    const displayedWidth = Math.min(box.width, box.height * (vw / vh));
+    const freeSide = Math.max(0, (box.width - displayedWidth) / 2);
+    // Undgå at vise ornamenter på meget smalle sider.
+    hero.style.setProperty('--video-side-space', freeSide >= 34 ? `${freeSide}px` : '0px');
+}
 
-    if (scroll < window.innerHeight) {
+const sideOrnamentVideo = document.querySelector('#heroVideo');
+sideOrnamentVideo?.addEventListener('loadedmetadata', updateHeroSideOrnaments);
+window.addEventListener('resize', updateHeroSideOrnaments, { passive: true });
+window.addEventListener('orientationchange', updateHeroSideOrnaments);
+updateHeroSideOrnaments();
 
-        heroContent.style.transform =
-            `translateY(${scroll * 0.08}px)`;
+
+/* =========================================================
+   HERO LYD
+========================================================= */
+const heroVideo = document.querySelector("#heroVideo");
+const heroSoundButton = document.querySelector("#heroSoundButton");
+
+if (heroVideo && heroSoundButton) {
+    // Autoplay starter lydløst af hensyn til browsernes regler.
+    heroVideo.muted = true;
+    heroVideo.volume = 1;
+
+    function updateSoundButton() {
+        const hasSound = !heroVideo.muted;
+        heroSoundButton.classList.toggle("sound-on", hasSound);
+        heroSoundButton.setAttribute("aria-pressed", String(hasSound));
+        heroSoundButton.setAttribute("aria-label", hasSound ? "Slå lyd fra" : "Slå lyd til");
+        heroSoundButton.title = hasSound ? "Slå lyd fra" : "Slå lyd til";
+        const label = heroSoundButton.querySelector(".sound-button-text");
+        if (label) label.textContent = hasSound ? "LYD TIL" : "LYD FRA";
     }
-});
+
+    heroSoundButton.addEventListener("click", async () => {
+        heroVideo.muted = !heroVideo.muted;
+        updateSoundButton();
+        if (heroVideo.paused) {
+            try {
+                await heroVideo.play();
+            } catch (error) {
+                console.warn("Videoen kunne ikke afspilles:", error);
+            }
+        }
+    });
+
+    updateSoundButton();
+}
 
 
 /* =========================================================

@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="280" height="900" viewBox="0 0 280 900" preserveAspectRatio="none">
+<defs>
+ <linearGradient id="wood" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#071b16"/><stop offset=".23" stop-color="#15372c"/><stop offset=".47" stop-color="#234338"/><stop offset=".7" stop-color="#102b22"/><stop offset="1" stop-color="#05140f"/></linearGradient>
+ <linearGradient id="twig" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#38513c"/><stop offset=".6" stop-color="#243c2d"/><stop offset="1" stop-color="#081c15"/></linearGradient>
+</defs>
+<!-- asymmetrical ancient tree trunk -->
+<path d="M29 0 C46 90 27 146 48 230 C70 334 26 430 51 541 C79 667 45 744 35 900 L116 900 C91 810 115 724 99 644 C82 546 121 450 96 357 C75 258 106 166 85 72 L88 0Z" fill="url(#wood)" stroke="#63734e" stroke-opacity=".42" stroke-width="3"/>
+<!-- extending branches -->
+<g fill="none" stroke="url(#twig)" stroke-linecap="round">
+ <path d="M72 197 C111 144 135 127 161 123 C184 122 193 97 211 70" stroke-width="18"/>
+ <path d="M95 350 C141 312 166 304 183 264 C195 234 224 219 247 206" stroke-width="15"/>
+ <path d="M85 515 C130 493 140 452 177 447 C202 448 223 430 253 397" stroke-width="17"/>
+ <path d="M85 699 C128 675 162 679 188 644 C212 614 238 617 260 601" stroke-width="19"/>
+ <path d="M47 109 C92 83 128 48 138 0" stroke-width="10"/>
+ <path d="M66 590 C133 580 148 555 159 529" stroke-width="10"/>
+</g>
+<!-- mossy bark lines -->
+<g fill="none" stroke="#6b7654" stroke-opacity=".42" stroke-width="2.1" stroke-linecap="round">
+ <path d="M52 5 C65 68 44 120 67 166 S49 258 67 310 S65 398 64 470 S80 575 69 646 S78 760 64 878"/>
+ <path d="M79 39 C69 96 91 149 78 210 S94 311 82 370 S97 483 82 546 S107 701 91 788"/>
+ <path d="M38 266 C58 284 56 308 46 329 M54 421 Q75 449 62 473 M65 756 Q92 772 74 817"/>
+</g>
+<!-- branches twigs -->
+<g stroke="#5b6847" stroke-width="3" stroke-opacity=".7" fill="none" stroke-linecap="round">
+ <path d="M147 136 Q157 98 151 81 M179 118 Q192 125 207 121 M184 260 Q170 230 180 205 M221 225 Q243 227 258 214 M184 447 Q188 409 208 392 M216 431 Q231 443 250 441 M191 645 Q184 612 196 591 M236 616 Q245 590 261 580"/>
+</g>
+<!-- scattered small leaves -->
+<g fill="#455842" fill-opacity=".7" stroke="#8a8150" stroke-opacity=".35" stroke-width="1">
+ <ellipse cx="207" cy="70" rx="8" ry="16" transform="rotate(-24 207 70)"/>
+ <ellipse cx="151" cy="82" rx="7" ry="14" transform="rotate(35 151 82)"/>
+ <ellipse cx="238" cy="204" rx="7" ry="15" transform="rotate(34 238 204)"/>
+ <ellipse cx="177" cy="205" rx="6" ry="13" transform="rotate(-31 177 205)"/>
+ <ellipse cx="249" cy="398" rx="7" ry="15" transform="rotate(23 249 398)"/>
+ <ellipse cx="203" cy="394" rx="7" ry="12" transform="rotate(-44 203 394)"/>
+ <ellipse cx="255" cy="599" rx="8" ry="16" transform="rotate(34 255 599)"/>
+ <ellipse cx="190" cy="590" rx="7" ry="14" transform="rotate(-30 190 590)"/>
+</g>
+<!-- widening root structure -->
+<path d="M43 804 Q24 838 8 877 L0 900 L45 900 Q52 870 74 858 Q98 880 116 900 L174 900 Q128 852 98 814 Z" fill="url(#wood)" stroke="#63734e" stroke-opacity=".4" stroke-width="3"/>
+<g fill="none" stroke="#7c8057" stroke-opacity=".37" stroke-width="3"><path d="M60 828 Q29 865 19 900"/><path d="M86 837 Q122 866 139 900"/></g>
+</svg>

@@ -214,7 +214,7 @@
       video/hero.mp4
   -->
 
-  <video class="hero-video"
+  <video class="hero-video" id="heroVideo"
          autoplay
          muted
          loop
@@ -224,6 +224,10 @@
 
   </video>
 
+
+  <!-- Organiske træsøjler udfylder kun sorte sidefelter ved smal video -->
+  <div class="video-side-ornament video-side-left" aria-hidden="true"></div>
+  <div class="video-side-ornament video-side-right" aria-hidden="true"></div>
 
   <!-- mørkt overlay -->
 
@@ -245,31 +249,6 @@
 
   <div class="hero-content">
 
-        <span class="hero-label">
-            DIGITAL PORTFOLIO
-        </span>
-
-
-    <div class="hero-title-frame">
-
-      <span class="frame-decoration left"></span>
-
-      <h1>
-        Creative
-        <span>Worlds</span>
-      </h1>
-
-      <span class="frame-decoration right"></span>
-
-    </div>
-
-
-    <p>
-      Websites, spil og kreative projekter
-      samlet i ét digitalt univers.
-    </p>
-
-
     <a href="#projects-preview" class="hero-button">
 
       Udforsk mit arbejde
@@ -280,6 +259,18 @@
 
   </div>
 
+
+  <!-- Lydstyring til introvideoen -->
+  <button class="hero-sound-button" id="heroSoundButton" type="button"
+          aria-label="Slå lyd til" aria-pressed="false" title="Slå lyd til">
+    <svg class="sound-icon sound-icon-off" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M11 5 6 9H3v6h3l5 4V5Z"/><path d="m16 9 5 6m0-6-5 6"/>
+    </svg>
+    <svg class="sound-icon sound-icon-on" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M11 5 6 9H3v6h3l5 4V5Z"/><path d="M15 9a4 4 0 0 1 0 6"/><path d="M18 6a8 8 0 0 1 0 12"/>
+    </svg>
+    <span class="sound-button-text">LYD FRA</span>
+  </button>
 
   <!-- scroll-indikator -->
 
