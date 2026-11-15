@@ -192,27 +192,6 @@ const aboutPage =
 
 if (aboutPage) {
 
-    const progressTrack =
-        document.createElement("div");
-
-    const progressFill =
-        document.createElement("div");
-
-    progressTrack.className =
-        "about-progress-track";
-
-    progressFill.className =
-        "about-progress-fill";
-
-    progressTrack.appendChild(
-        progressFill
-    );
-
-    aboutPage.appendChild(
-        progressTrack
-    );
-
-
     const revealItems =
         document.querySelectorAll(
             [
@@ -243,22 +222,6 @@ if (aboutPage) {
 
         }
     );
-
-
-    function updateAboutProgress() {
-
-        const pageHeight =
-            document.documentElement.scrollHeight -
-            window.innerHeight;
-
-        const progress =
-            pageHeight > 0
-                ? window.scrollY / pageHeight
-                : 0;
-
-        progressFill.style.transform =
-            `scaleY(${Math.min(Math.max(progress, 0), 1)})`;
-    }
 
 
     if ("IntersectionObserver" in window) {
@@ -303,17 +266,6 @@ if (aboutPage) {
         );
 
     }
-
-
-    window.addEventListener(
-        "scroll",
-        updateAboutProgress,
-        {
-            passive: true
-        }
-    );
-
-    updateAboutProgress();
 }
 
 

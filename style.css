@@ -5164,3 +5164,296 @@ body:not(.about-page):not(.contact-page) .carousel-dots {
 .visually-hidden { position:absolute!important; width:1px!important; height:1px!important; padding:0!important; margin:-1px!important; overflow:hidden!important; clip:rect(0,0,0,0)!important; white-space:nowrap!important; border:0!important; }
 .nav-dropdown:focus-within .dropdown-menu { opacity:1; visibility:visible; transform:translateX(-50%) translateY(0); }
 :where(a,button,input,textarea):focus-visible { outline:2px solid var(--gold); outline-offset:4px; }
+
+/* =========================================================
+   V9 - Fælles header/navigation på alle undersider
+   Forsidens originale slot/menu-layout bevares uændret.
+========================================================= */
+
+/* Den gamle scrollfremdrift på Om mig er fjernet i JS.
+   Reglen skjuler også en eventuel cachet version. */
+.about-page .about-progress-track,
+.about-page .about-progress-fill { display: none !important; }
+
+/* Knapperne fra startsidens menu bruges også på alle undersider. */
+@media (min-width: 751px) {
+  body.about-page .top-navigation,
+  body.contact-page .top-navigation {
+    gap: clamp(14px, 3.25vw, 60px);
+    min-height: 58px;
+    background: #091d16;
+    border-top: 0;
+    border-bottom: 1px solid rgba(200,157,96,.16);
+    z-index: 92;
+  }
+
+  body.about-page .top-navigation > a,
+  body.about-page .top-navigation .nav-dropdown,
+  body.contact-page .top-navigation > a,
+  body.contact-page .top-navigation .nav-dropdown {
+    transform: translateY(-12px);
+  }
+
+  body.about-page .top-navigation > a,
+  body.about-page .top-navigation .nav-project-button,
+  body.contact-page .top-navigation > a,
+  body.contact-page .top-navigation .nav-project-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 34px;
+    padding: 9px 17px;
+    border: 1px solid rgba(210,180,123,.72);
+    border-radius: 6px;
+    background: rgba(9,27,22,.94);
+    box-shadow: 0 3px 8px rgba(0,0,0,.40), inset 0 1px 0 rgba(255,255,255,.08);
+    color: #f1e8d4;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.7px;
+    text-shadow: 0 1px 2px rgba(0,0,0,.7);
+    transition: background .2s ease, border-color .2s ease, box-shadow .2s ease;
+  }
+
+  body.about-page .top-navigation > a:hover,
+  body.about-page .top-navigation > a.active,
+  body.about-page .top-navigation .nav-project-button:hover,
+  body.about-page .top-navigation .nav-project-button.active,
+  body.contact-page .top-navigation > a:hover,
+  body.contact-page .top-navigation > a.active,
+  body.contact-page .top-navigation .nav-project-button:hover,
+  body.contact-page .top-navigation .nav-project-button.active {
+    background: rgba(30,64,44,.98);
+    border-color: #d3b47c;
+    color: #fff3d9;
+    box-shadow: 0 3px 11px rgba(0,0,0,.5), inset 0 0 0 1px rgba(209,179,119,.1);
+  }
+
+  body.about-page .top-navigation > a::after,
+  body.about-page .top-navigation .nav-project-button::after,
+  body.contact-page .top-navigation > a::after,
+  body.contact-page .top-navigation .nav-project-button::after { display: none; }
+
+  body.about-page .top-navigation .dropdown-menu,
+  body.contact-page .top-navigation .dropdown-menu { z-index: 110; }
+}
+
+/* Samme afstand/knapper på små skærme, uden at presse teksten ud. */
+@media (max-width: 750px) {
+  .top-navigation { gap: clamp(5px, 1.8vw, 20px); padding-inline: 8px; }
+  .top-navigation > a,
+  .top-navigation .nav-project-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 9px clamp(5px,1.5vw,12px);
+    font-size: clamp(8px,2vw,11px);
+    line-height: 1.25;
+    letter-spacing: .5px;
+    border: 1px solid rgba(210,180,123,.45);
+    border-radius: 4px;
+    background: rgba(9,27,22,.94);
+    color: #f1e8d4;
+  }
+  .top-navigation > a.active,
+  .top-navigation .nav-project-button.active {
+    border-color: var(--gold);
+    background: rgba(30,64,44,.98);
+  }
+  .top-navigation > a::after,
+  .top-navigation .nav-project-button::after { display: none; }
+}
+
+
+/* =========================================================
+   V10 – Tættere header på undersiderne
+   Knappernes lodrette position er bevaret: den ekstra luft
+   UNDER dem er fjernet, uden at ændre startsidens slotslayout.
+========================================================= */
+@media (min-width: 751px) {
+  body.about-page .top-navigation,
+  body.contact-page .top-navigation,
+  body.project-category-page .top-navigation {
+    min-height: 35px;
+    height: 35px;
+    padding-block: 0;
+    gap: clamp(14px, 3.25vw, 60px);
+    background: #091d16;
+    border-bottom: 1px solid rgba(200,157,96,.16);
+  }
+  body.about-page .top-navigation > a,
+  body.about-page .top-navigation .nav-dropdown,
+  body.contact-page .top-navigation > a,
+  body.contact-page .top-navigation .nav-dropdown,
+  body.project-category-page .top-navigation > a,
+  body.project-category-page .top-navigation .nav-dropdown {
+    transform: none;
+  }
+  body.project-category-page .top-navigation > a,
+  body.project-category-page .top-navigation .nav-project-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 34px;
+    padding: 9px 17px;
+    border: 1px solid rgba(210,180,123,.72);
+    border-radius: 6px;
+    background: rgba(9,27,22,.94);
+    color: #f1e8d4;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.7px;
+  }
+  body.project-category-page .top-navigation > a::after,
+  body.project-category-page .top-navigation .nav-project-button::after { display:none; }
+  body.project-category-page .top-navigation > a.active,
+  body.project-category-page .top-navigation .nav-project-button.active { background: rgba(30,64,44,.98); border-color:var(--gold); }
+}
+
+/* =========================================================
+   V10 – Mobil: profilbillede ved siden af OSKAR EMDE
+   Teksten under navnet får sin egen fulde bredde.
+========================================================= */
+@media (max-width: 750px) {
+  body.about-page .about-hero {
+    padding-top: 55px;
+  }
+  body.about-page .about-hero-inner {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    min-width: 0;
+  }
+  body.about-page .about-hero-intro {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    min-width: 0;
+  }
+  body.about-page .about-hero h1 {
+    width: 60%;
+    margin-top: 15px;
+    font-size: clamp(48px, 14vw, 77px);
+    line-height: .96;
+    letter-spacing: -1.5px;
+  }
+  body.about-page .about-hero h1 span { margin-left: 10px; }
+  body.about-page .about-portrait-wrap {
+    position: absolute;
+    z-index: 3;
+    top: 8px;
+    right: -2vw;
+    bottom: auto;
+    left: auto;
+    order: initial;
+    width: 43%;
+    height: 215px;
+    margin: 0;
+    transform: none;
+    align-items: flex-end;
+    overflow: hidden;
+  }
+  body.about-page .about-portrait-frame {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+  }
+  body.about-page .about-portrait {
+    width: 100%;
+    max-width: none;
+    max-height: 100%;
+    height: auto;
+    object-fit: contain;
+    object-position: center bottom;
+  }
+  body.about-page .about-portrait-wrap::before,
+  body.about-page .about-portrait-wrap::after { display: none; }
+  body.about-page .about-role {
+    clear: both;
+    margin-top: 70px;
+  }
+  body.about-page .about-introduction { max-width: 100%; }
+}
+@media (max-width: 390px) {
+  body.about-page .about-hero h1 { font-size: clamp(43px, 13.2vw, 54px); }
+  body.about-page .about-portrait-wrap { width: 42%; height: 185px; right: -3vw; }
+  body.about-page .about-role { margin-top: 58px; }
+}
+
+/* =========================================================
+   V10 – Ingen vandret tekst-overflow i uddannelse/erfaring
+========================================================= */
+@media (max-width: 980px) {
+  body.about-page .resume-columns {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    width: 100%;
+    gap: 55px;
+  }
+  body.about-page .resume-column,
+  body.about-page .timeline,
+  body.about-page .timeline-item,
+  body.about-page .resume-column-title {
+    min-width: 0;
+    max-width: 100%;
+  }
+  body.about-page .resume-column-title h3 {
+    font-size: clamp(25px, 6.6vw, 42px);
+    overflow-wrap: anywhere;
+    line-height: 1.2;
+  }
+  body.about-page .resume-column-title > span {
+    font-size: clamp(10px, 2.7vw, 15px);
+    letter-spacing: 1.5px;
+    overflow-wrap: anywhere;
+  }
+  body.about-page .timeline {
+    padding-left: clamp(12px, 3.5vw, 24px);
+  }
+  body.about-page .timeline-item {
+    padding-left: clamp(10px, 3.5vw, 24px);
+    padding-right: 0;
+    overflow-wrap: anywhere;
+  }
+  body.about-page .timeline-item h4 {
+    font-size: clamp(18px, 5.4vw, 23px);
+    overflow-wrap: anywhere;
+    line-height: 1.35;
+  }
+  body.about-page .timeline-item p,
+  body.about-page .timeline-place,
+  body.about-page .timeline-date {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    white-space: normal;
+  }
+  body.about-page .timeline-marker { left: calc(-1 * clamp(17px, 4.5vw, 31px)); }
+}
+
+/* =========================================================
+   V11 – Fritstående navigationsknapper, ingen bagvedliggende bar
+   Bevarer knappositioner, størrelse og alle menupunkter.
+========================================================= */
+body .top-navigation {
+  background: transparent !important;
+  background-image: none !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+body .top-navigation::before,
+body .top-navigation::after {
+  content: none !important;
+  display: none !important;
+}
+/* Ingen flade bag knapperne – kun knapperne har egen baggrund. */
+@media (min-width: 751px) {
+  body.about-page .top-navigation,
+  body.contact-page .top-navigation,
+  body.project-category-page .top-navigation {
+    background: transparent !important;
+    border: 0 !important;
+  }
+}

@@ -1,4 +1,4 @@
-## Design og koncept
+Design og koncept
 
 Min portfolio er inspireret af fantasy og middelalderen (medieval), hvor jeg har forsøgt at kombinere et gammeldags,
 eventyrligt univers med moderne webdesign.
