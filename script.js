@@ -216,11 +216,8 @@ if (aboutPage) {
     const revealItems =
         document.querySelectorAll(
             [
-                ".quickfacts-intro",
-                ".quickfact-card",
                 ".about-section-heading",
                 ".profile-main",
-                ".profile-quote",
                 ".profile-highlights div",
                 ".expertise-card",
                 ".tool-item",
@@ -356,21 +353,21 @@ if (carouselElement) {
     const projects = [
 
         {
-            title: "Racerspil",
+            title: "Spil",
             category: "Spil & interaktive oplevelser",
             image: "assets/images/project-02.png",
             link: "games.html"
         },
 
         {
-            title: "Responsive Breakout",
+            title: "hjemmesider",
             category: "Webdesign & udvikling",
             image: "assets/images/project-04.png",
             link: "websites.html"
         },
 
         {
-            title: "Ye Who Enter Here",
+            title: "Andet arbjede",
             category: "Design · 3D · Kreativt arbejde",
             image: "assets/images/project-03.png",
             link: "other.html"
@@ -1628,4 +1625,17 @@ if (carouselElement) {
 
     animate();
 
+}
+
+/* Kontaktstatus efter tilbagevenden fra PHP */
+const contactStatus = document.getElementById('contactStatus');
+if (contactStatus) {
+  const status = new URLSearchParams(window.location.search).get('status');
+  const messages = {sent:'Tak for din besked! Den er sendt.', invalid:'Kontrollér felterne, og prøv igen.', config:'Kontaktformularen mangler endnu en modtageradresse.', error:'Beskeden kunne ikke sendes. Prøv igen senere.'};
+  if (status && messages[status]) {
+    contactStatus.hidden = false;
+    contactStatus.classList.toggle('error', status !== 'sent');
+    contactStatus.textContent = messages[status];
+    contactStatus.scrollIntoView({block:'center',behavior:'smooth'});
+  }
 }

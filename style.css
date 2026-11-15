@@ -4228,7 +4228,7 @@ body, .about-page { background-color: var(--bg-dark); }
    Ligger oven over hero, og stikker op gennem navigationen.
    Juster --castle-top og --castle-height-offset efter behov.
 ========================================================= */
-body:not(.about-page) { --castle-top: 52px; }
+body:not(.about-page):not(.contact-page) { --castle-top: 52px; }
 
 .castle-hero-frame {
   position: absolute;
@@ -4281,10 +4281,10 @@ body:not(.about-page) { --castle-top: 52px; }
    SLOT-PORT V2 – større og FORAN menubaren
    Testversion: mere sten i siderne og højere tårne.
 ========================================================= */
-body:not(.about-page) {
+body:not(.about-page):not(.contact-page) {
   --castle-top: -12px;
 }
-body:not(.about-page) .castle-hero-frame {
+body:not(.about-page):not(.contact-page) .castle-hero-frame {
   left: -7%;
   top: var(--castle-top);
   width: 114%;
@@ -4292,19 +4292,19 @@ body:not(.about-page) .castle-hero-frame {
   z-index: 80; /* foran både menu og header */
   pointer-events: none; /* menulinks kan stadig klikkes */
 }
-body:not(.about-page) .castle-hero-frame img {
+body:not(.about-page):not(.contact-page) .castle-hero-frame img {
   width: 100%;
   height: 100%;
   object-fit: fill;
 }
 /* Hold brugerfladeelementerne oven på den dekorative port. */
-body:not(.about-page) .menu-toggle { z-index: 1000; }
-body:not(.about-page) .hero-sound-button,
-body:not(.about-page) .hero-content,
-body:not(.about-page) .hero-scroll { z-index: 85; }
+body:not(.about-page):not(.contact-page) .menu-toggle { z-index: 1000; }
+body:not(.about-page):not(.contact-page) .hero-sound-button,
+body:not(.about-page):not(.contact-page) .hero-content,
+body:not(.about-page):not(.contact-page) .hero-scroll { z-index: 85; }
 
 @media (max-width: 1000px) {
-  body:not(.about-page) .castle-hero-frame {
+  body:not(.about-page):not(.contact-page) .castle-hero-frame {
     left: -9%;
     width: 118%;
     top: 0;
@@ -4313,7 +4313,7 @@ body:not(.about-page) .hero-scroll { z-index: 85; }
 }
 @media (max-width: 750px) {
   /* Mobil: undgå at dække hele den smalle navigation. */
-  body:not(.about-page) .castle-hero-frame {
+  body:not(.about-page):not(.contact-page) .castle-hero-frame {
     left: -16%;
     width: 132%;
     top: 145px;
@@ -4327,35 +4327,35 @@ body:not(.about-page) .hero-scroll { z-index: 85; }
    Rediger kun disse regler ved finjustering.
 ========================================================= */
 @media (min-width: 751px) {
-  body:not(.about-page) .castle-hero-frame {
+  body:not(.about-page):not(.contact-page) .castle-hero-frame {
     top: 14px;                 /* 26 px lavere end den gamle -12px */
     height: calc(100dvh + 43px); /* bundstenene rækker ned i næste sektion */
     z-index: 80;
   }
   /* Navigationsteksten ligger synligt OVENPÅ murens øverste sten.
      Den grønne menuplade fjernes helt. */
-  body:not(.about-page) .top-navigation {
+  body:not(.about-page):not(.contact-page) .top-navigation {
     z-index: 92;
     background: transparent !important;
     border: 0;
     min-height: 58px;
     pointer-events: none;
   }
-  body:not(.about-page) .top-navigation > a,
-  body:not(.about-page) .top-navigation .nav-dropdown,
-  body:not(.about-page) .top-navigation button { pointer-events: auto; }
-  body:not(.about-page) .top-navigation > a,
-  body:not(.about-page) .nav-project-button {
+  body:not(.about-page):not(.contact-page) .top-navigation > a,
+  body:not(.about-page):not(.contact-page) .top-navigation .nav-dropdown,
+  body:not(.about-page):not(.contact-page) .top-navigation button { pointer-events: auto; }
+  body:not(.about-page):not(.contact-page) .top-navigation > a,
+  body:not(.about-page):not(.contact-page) .nav-project-button {
     color: #19211c;
     font-weight: 600;
     text-shadow: 0 1px 0 rgba(255,255,255,.55);
   }
-  body:not(.about-page) .top-navigation > a:hover,
-  body:not(.about-page) .top-navigation > a.active,
-  body:not(.about-page) .nav-project-button:hover { color: #38582b; }
+  body:not(.about-page):not(.contact-page) .top-navigation > a:hover,
+  body:not(.about-page):not(.contact-page) .top-navigation > a.active,
+  body:not(.about-page):not(.contact-page) .nav-project-button:hover { color: #38582b; }
 }
-body:not(.about-page) .hero { height: calc(100dvh - 173px + 43px); min-height: 0; }
-body:not(.about-page) .hero-content {
+body:not(.about-page):not(.contact-page) .hero { height: calc(100dvh - 173px + 43px); min-height: 0; }
+body:not(.about-page):not(.contact-page) .hero-content {
   bottom: 85px;
   width: max-content;
   max-width: calc(100% - 60px);
@@ -4365,8 +4365,8 @@ body:not(.about-page) .hero-content {
   gap: 12px;
   z-index: 96;
 }
-body:not(.about-page) .hero-button { margin: 0; padding: 9px 4px; }
-body:not(.about-page) .hero-sound-button {
+body:not(.about-page):not(.contact-page) .hero-button { margin: 0; padding: 9px 4px; }
+body:not(.about-page):not(.contact-page) .hero-sound-button {
   position: static;
   min-width: 114px;
   min-height: 38px;
@@ -4375,9 +4375,9 @@ body:not(.about-page) .hero-sound-button {
   padding: 9px 14px;
   z-index: auto;
 }
-body:not(.about-page) .hero-scroll { display: none !important; }
+body:not(.about-page):not(.contact-page) .hero-scroll { display: none !important; }
 /* Klikfladen dækker videoens centrum, men ikke CTA eller menuerne. */
-body:not(.about-page) .hero-play-area {
+body:not(.about-page):not(.contact-page) .hero-play-area {
   position: absolute;
   z-index: 83;
   inset: 9% 19% 16%;
@@ -4389,7 +4389,7 @@ body:not(.about-page) .hero-play-area {
   cursor: pointer;
   color: white;
 }
-body:not(.about-page) .hero-play-area:focus-visible {
+body:not(.about-page):not(.contact-page) .hero-play-area:focus-visible {
   outline: 2px solid var(--gold);
   outline-offset: -8px;
 }
@@ -4411,13 +4411,13 @@ body:not(.about-page) .hero-play-area:focus-visible {
 .hero-play-area.is-paused .hero-play-feedback::after { content: '▶'; margin-left: 4px; }
 .hero-play-area:not(.is-paused) .hero-play-feedback::after { content: 'Ⅱ'; }
 @media (max-width: 1000px) and (min-width: 751px) {
-  body:not(.about-page) .castle-hero-frame { top: 14px; height: calc(100dvh + 43px); }
+  body:not(.about-page):not(.contact-page) .castle-hero-frame { top: 14px; height: calc(100dvh + 43px); }
 }
 @media (max-width: 750px) {
-  body:not(.about-page) .hero { height: calc(100dvh - 147px + 10px); }
-  body:not(.about-page) .hero-content { bottom: 25px; gap: 8px; }
-  body:not(.about-page) .hero-sound-button { min-width: 42px; padding: 8px 12px; }
-  body:not(.about-page) .hero-play-area { inset: 20% 12% 21%; }
+  body:not(.about-page):not(.contact-page) .hero { height: calc(100dvh - 147px + 10px); }
+  body:not(.about-page):not(.contact-page) .hero-content { bottom: 25px; gap: 8px; }
+  body:not(.about-page):not(.contact-page) .hero-sound-button { min-width: 42px; padding: 8px 12px; }
+  body:not(.about-page):not(.contact-page) .hero-play-area { inset: 20% 12% 21%; }
 }
 
 /* =========================================================
@@ -4427,12 +4427,12 @@ body:not(.about-page) .hero-play-area:focus-visible {
 @media (min-width: 751px) {
   /* Slottets nederste sten og næste sektions start flugter med
      skærmens nederste kant – ingen ekstra hero-højde. */
-  body:not(.about-page) .hero {
+  body:not(.about-page):not(.contact-page) .hero {
     height: calc(100vh - 173px);
     height: calc(100dvh - 173px);
     min-height: 0;
   }
-  body:not(.about-page) .castle-hero-frame {
+  body:not(.about-page):not(.contact-page) .castle-hero-frame {
     top: 14px;
     height: calc(100vh - 14px);
     height: calc(100dvh - 14px);
@@ -4440,20 +4440,20 @@ body:not(.about-page) .hero-play-area:focus-visible {
 
   /* Giv de fire navigationspunkter tydelige, diskrete
      knapper oven på broens flade stenrække. */
-  body:not(.about-page) .top-navigation {
+  body:not(.about-page):not(.contact-page) .top-navigation {
     background: transparent !important;
     border: 0;
     z-index: 92;
     gap: clamp(14px, 3.25vw, 60px);
     pointer-events: none;
   }
-  body:not(.about-page) .top-navigation > a,
-  body:not(.about-page) .top-navigation .nav-dropdown {
+  body:not(.about-page):not(.contact-page) .top-navigation > a,
+  body:not(.about-page):not(.contact-page) .top-navigation .nav-dropdown {
     transform: translateY(70px);
     pointer-events: auto;
   }
-  body:not(.about-page) .top-navigation > a,
-  body:not(.about-page) .top-navigation .nav-project-button {
+  body:not(.about-page):not(.contact-page) .top-navigation > a,
+  body:not(.about-page):not(.contact-page) .top-navigation .nav-project-button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -4470,20 +4470,20 @@ body:not(.about-page) .hero-play-area:focus-visible {
     text-shadow: 0 1px 2px rgba(0,0,0,.7);
     transition: background .2s ease, border-color .2s ease, box-shadow .2s ease;
   }
-  body:not(.about-page) .top-navigation > a:hover,
-  body:not(.about-page) .top-navigation > a.active,
-  body:not(.about-page) .top-navigation .nav-project-button:hover {
+  body:not(.about-page):not(.contact-page) .top-navigation > a:hover,
+  body:not(.about-page):not(.contact-page) .top-navigation > a.active,
+  body:not(.about-page):not(.contact-page) .top-navigation .nav-project-button:hover {
     background: rgba(30, 64, 44, .98);
     border-color: #d3b47c;
     color: #fff3d9;
     box-shadow: 0 3px 11px rgba(0,0,0,.5), inset 0 0 0 1px rgba(209,179,119,.1);
   }
-  body:not(.about-page) .top-navigation > a::after,
-  body:not(.about-page) .top-navigation .nav-project-button::after {
+  body:not(.about-page):not(.contact-page) .top-navigation > a::after,
+  body:not(.about-page):not(.contact-page) .top-navigation .nav-project-button::after {
     display: none;
   }
   /* Dropdown skal blive under projektknappen. */
-  body:not(.about-page) .top-navigation .dropdown-menu {
+  body:not(.about-page):not(.contact-page) .top-navigation .dropdown-menu {
     z-index: 110;
   }
 }
@@ -4492,12 +4492,12 @@ body:not(.about-page) .hero-play-area:focus-visible {
    Behold den almindelige mobile navigation frem for at lægge
    knapper oven på de for små sten. */
 @media (max-width: 750px) {
-  body:not(.about-page) .hero {
+  body:not(.about-page):not(.contact-page) .hero {
     height: calc(100vh - 147px);
     height: calc(100dvh - 147px);
     min-height: 0;
   }
-  body:not(.about-page) .castle-hero-frame {
+  body:not(.about-page):not(.contact-page) .castle-hero-frame {
     height: calc(100vh - 145px);
     height: calc(100dvh - 145px);
   }
@@ -4510,26 +4510,26 @@ body:not(.about-page) .hero-play-area:focus-visible {
    Vi ændrer ikke hero-sektionens højde.
 ========================================================= */
 :root { --castle-unified-green: #081b15; }
-body:not(.about-page),
-body:not(.about-page) .main-header,
-body:not(.about-page) .hero,
-body:not(.about-page) .project-showcase {
+body:not(.about-page):not(.contact-page),
+body:not(.about-page):not(.contact-page) .main-header,
+body:not(.about-page):not(.contact-page) .hero,
+body:not(.about-page):not(.contact-page) .project-showcase {
   background: var(--castle-unified-green);
 }
 /* Brug en fælles baggrund bag menuen og slottet uden grønne farveskift. */
-body:not(.about-page) .top-navigation { background: transparent !important; }
+body:not(.about-page):not(.contact-page) .top-navigation { background: transparent !important; }
 @media (min-width: 751px) {
   /* Rammens nederste sten flyttes ca. 20 px ned, mens sektionsgrænsen
      forbliver præcis nederst i viewporten ved første visning. */
-  body:not(.about-page) .castle-hero-frame {
+  body:not(.about-page):not(.contact-page) .castle-hero-frame {
     top: 34px;
     height: calc(100dvh - 14px);
   }
   /* Lydknappen bliver hvor den var, men Udforsk flyttes nedenunder. */
-  body:not(.about-page) .hero-content { bottom: 40px; }
+  body:not(.about-page):not(.contact-page) .hero-content { bottom: 40px; }
 }
 /* Ingen separat underliggende farveflade foran videoens sideområder. */
-body:not(.about-page) .hero-video { background: transparent; }
+body:not(.about-page):not(.contact-page) .hero-video { background: transparent; }
 
 /* =========================================================
    SLOT-PORT V6 — navigation over broen, video til bund og
@@ -4538,14 +4538,14 @@ body:not(.about-page) .hero-video { background: transparent; }
 ========================================================= */
 @media (min-width: 751px) {
   /* Menuknapper mellem stregen under navnet og slottets takker. */
-  body:not(.about-page) .top-navigation > a,
-  body:not(.about-page) .top-navigation .nav-dropdown {
+  body:not(.about-page):not(.contact-page) .top-navigation > a,
+  body:not(.about-page):not(.contact-page) .top-navigation .nav-dropdown {
     transform: translateY(-12px);
   }
 
   /* Udfyld portåbningens højde frem til nederste stenrække.
      cover udfylder uden sorte bånd, men kan beskære videoen en smule. */
-  body:not(.about-page) .hero-video {
+  body:not(.about-page):not(.contact-page) .hero-video {
     left: 50%;
     top: 64px;
     width: 67%;
@@ -4557,21 +4557,21 @@ body:not(.about-page) .hero-video { background: transparent; }
 }
 
 /* Fjern de mørke gradientpaneler ved begge karruselpile. */
-body:not(.about-page) .carousel-fade,
-body:not(.about-page) .carousel-fade-left,
-body:not(.about-page) .carousel-fade-right {
+body:not(.about-page):not(.contact-page) .carousel-fade,
+body:not(.about-page):not(.contact-page) .carousel-fade-left,
+body:not(.about-page):not(.contact-page) .carousel-fade-right {
   display: none !important;
   background: none !important;
 }
 /* Samme skovgrønne grundfarve bag hele karussellen. */
-body:not(.about-page) .gothic-carousel-shell,
-body:not(.about-page) .gothic-carousel {
+body:not(.about-page):not(.contact-page) .gothic-carousel-shell,
+body:not(.about-page):not(.contact-page) .gothic-carousel {
   background: transparent;
 }
 
 @media (max-width: 750px) {
   /* Undgå at beskære hele mobilvideoen for at fylde en smal port. */
-  body:not(.about-page) .hero-video {
+  body:not(.about-page):not(.contact-page) .hero-video {
     width: 78%;
     top: 15%;
     height: 82%;
@@ -4584,14 +4584,14 @@ body:not(.about-page) .gothic-carousel {
    Desktop påvirkes ikke. Alle mål kan justeres her.
 ========================================================= */
 @media (max-width: 750px) {
-  body:not(.about-page) {
+  body:not(.about-page):not(.contact-page) {
     --mobile-castle-header: 147px; /* header + mobilnavigation */
     --mobile-castle-stone: 10px; /* frihold nederste stenkant */
   }
 
   /* Hero slutter præcis i viewportens bund, så skillelinjen
      starter umiddelbart under portens nederste stenrække. */
-  body:not(.about-page) .hero {
+  body:not(.about-page):not(.contact-page) .hero {
     height: calc(100vh - var(--mobile-castle-header));
     height: calc(100dvh - var(--mobile-castle-header));
     min-height: 0;
@@ -4600,7 +4600,7 @@ body:not(.about-page) .gothic-carousel {
 
   /* Frame er et udsnitsvindue: borgens top er uden for vinduet,
      men billedets bundsten holdes fast ved heroens nederste kant. */
-  body:not(.about-page) .castle-hero-frame {
+  body:not(.about-page):not(.contact-page) .castle-hero-frame {
     position: absolute;
     top: var(--mobile-castle-header);
     left: -16%;
@@ -4611,7 +4611,7 @@ body:not(.about-page) .gothic-carousel {
     z-index: 55;
     pointer-events: none;
   }
-  body:not(.about-page) .castle-hero-frame img {
+  body:not(.about-page):not(.contact-page) .castle-hero-frame img {
     position: absolute;
     top: auto;
     bottom: 0;
@@ -4626,7 +4626,7 @@ body:not(.about-page) .gothic-carousel {
   /* Selve videoen er synlig helt fra navigationslinjen
      til lige over slottets bundsten. På den smalle mobilflade
      beskærer cover siderne af videobilledet (ikke proportioner). */
-  body:not(.about-page) .hero-video {
+  body:not(.about-page):not(.contact-page) .hero-video {
     position: absolute;
     inset: auto;
     top: 0;
@@ -4642,22 +4642,22 @@ body:not(.about-page) .gothic-carousel {
   }
 
   /* Styring forbliver synlig inden for de nederste sten. */
-  body:not(.about-page) .hero-content {
+  body:not(.about-page):not(.contact-page) .hero-content {
     bottom: 32px;
     gap: 8px;
     z-index: 96;
   }
-  body:not(.about-page) .hero-play-area {
+  body:not(.about-page):not(.contact-page) .hero-play-area {
     inset: 3% 13% 22%;
     z-index: 83;
   }
 
   /* Adskillelsesstregen flugter med slutningen af heroen. */
-  body:not(.about-page) .project-showcase {
+  body:not(.about-page):not(.contact-page) .project-showcase {
     margin-top: 0;
     position: relative;
   }
-  body:not(.about-page) .project-showcase::before {
+  body:not(.about-page):not(.contact-page) .project-showcase::before {
     top: 0;
   }
 }
@@ -4674,12 +4674,12 @@ body:not(.about-page) .gothic-carousel {
   }
 
   /* Fjern hele den gamle borgport med tårne på mobil. */
-  body:not(.about-page) .castle-hero-frame {
+  body:not(.about-page):not(.contact-page) .castle-hero-frame {
     display: none !important;
   }
 
   /* Behold heroens enkle mobilhøjde og den gule streg i bunden. */
-  body:not(.about-page) .hero {
+  body:not(.about-page):not(.contact-page) .hero {
     position: relative;
     height: calc(100dvh - 147px);
     min-height: 0;
@@ -4689,7 +4689,7 @@ body:not(.about-page) .gothic-carousel {
 
   /* Videoen starter UNDER stenbroen, fylder hele bredden,
      og bruger contain så den ikke zoomer voldsomt ind. */
-  body:not(.about-page) .hero-video {
+  body:not(.about-page):not(.contact-page) .hero-video {
     position: absolute;
     top: var(--mobile-bridge-height) !important;
     left: 0 !important;
@@ -4706,7 +4706,7 @@ body:not(.about-page) .gothic-carousel {
   }
 
   /* Et grønt felt skjuler alt over broen, så videoen ikke kan ses der. */
-  body:not(.about-page) .hero::after {
+  body:not(.about-page):not(.contact-page) .hero::after {
     content: "";
     position: absolute;
     top: 0;
@@ -4719,7 +4719,7 @@ body:not(.about-page) .gothic-carousel {
   }
 
   /* Stenbroen er lidt større end skærmen, så siderne ikke bliver klippet. */
-  body:not(.about-page) .hero::before {
+  body:not(.about-page):not(.contact-page) .hero::before {
     content: "";
     position: absolute;
     top: 0;
@@ -4736,13 +4736,13 @@ body:not(.about-page) .gothic-carousel {
   }
 
   /* Knapper skal ligge nederst over videoen. */
-  body:not(.about-page) .hero-content {
+  body:not(.about-page):not(.contact-page) .hero-content {
     position: absolute;
     bottom: 22px;
     z-index: 96;
   }
 
-  body:not(.about-page) .hero-play-area {
+  body:not(.about-page):not(.contact-page) .hero-play-area {
     inset: var(--mobile-bridge-height) 0 20%;
     z-index: 83;
   }
@@ -4759,14 +4759,14 @@ body:not(.about-page) .gothic-carousel {
     --mobile-controls-height: 86px;
   }
 
-  body:not(.about-page) .hero {
+  body:not(.about-page):not(.contact-page) .hero {
     height: calc(var(--mobile-bridge-height) + var(--mobile-video-height) + var(--mobile-controls-height)) !important;
     min-height: 0 !important;
     max-height: none;
   }
 
   /* Video starter lidt bag stenbuen; broen dækker den øverste kant. */
-  body:not(.about-page) .hero-video {
+  body:not(.about-page):not(.contact-page) .hero-video {
     top: calc(var(--mobile-bridge-height) - 14px) !important;
     bottom: auto !important;
     left: 0 !important;
@@ -4779,27 +4779,388 @@ body:not(.about-page) .gothic-carousel {
   }
 
   /* Maskér kun det øverste felt bag stentakkerne. */
-  body:not(.about-page) .hero::after {
+  body:not(.about-page):not(.contact-page) .hero::after {
     height: calc(var(--mobile-bridge-height) - 14px) !important;
   }
 
   /* Stenbroens udseende og bredde fra V10 er uændret. */
-  body:not(.about-page) .hero-content {
+  body:not(.about-page):not(.contact-page) .hero-content {
     bottom: 9px !important;
     gap: 3px;
     z-index: 96;
   }
-  body:not(.about-page) .hero-sound-button {
+  body:not(.about-page):not(.contact-page) .hero-sound-button {
     min-height: 34px;
     padding: 6px 12px;
   }
-  body:not(.about-page) .hero-button {
+  body:not(.about-page):not(.contact-page) .hero-button {
     padding: 6px 4px;
   }
-  body:not(.about-page) .hero-play-area {
+  body:not(.about-page):not(.contact-page) .hero-play-area {
     inset: calc(var(--mobile-bridge-height) - 14px) 0 var(--mobile-controls-height) !important;
   }
-  body:not(.about-page) .project-showcase {
+  body:not(.about-page):not(.contact-page) .project-showcase {
     margin-top: 0 !important;
   }
 }
+
+/* =========================================================
+   FORSIDE – ekstra plads til 3D-rammer i projekter
+========================================================= */
+
+body:not(.about-page):not(.contact-page) .project-showcase {
+  min-height: 1040px;
+  padding-bottom: 120px;
+  overflow: visible;
+}
+
+body:not(.about-page):not(.contact-page) .gothic-carousel-shell {
+  height: 760px;
+  overflow: visible;
+}
+
+body:not(.about-page):not(.contact-page) .carousel-project-info {
+  bottom: 48px;
+}
+
+body:not(.about-page):not(.contact-page) .carousel-dots {
+  bottom: 16px;
+}
+
+@media (max-width: 750px) {
+  body:not(.about-page):not(.contact-page) .project-showcase {
+    min-height: 860px;
+    padding-bottom: 90px;
+  }
+
+  body:not(.about-page):not(.contact-page) .gothic-carousel-shell {
+    height: 600px;
+  }
+}
+
+/* =========================================================
+   HOBBYER V2 – synlige pop-in-effekter og overlappende figurer
+========================================================= */
+.about-hobbies {
+  position: relative;
+  overflow: visible;
+  padding: 105px 0 125px;
+  background: var(--bg-dark);
+}
+.about-hobbies > .about-section-heading {
+  width: min(1300px, 84vw);
+  margin-bottom: 78px;
+}
+.hobbies-stack {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  overflow: visible;
+}
+.hobby-panel {
+  position: relative;
+  width: 100%;
+  height: clamp(520px, 64vh, 670px);
+  overflow: visible; /* figurerne kan stikke op i forrige sektion */
+  border-top: 1px solid rgba(200, 157, 96, .19);
+}
+.hobby-panel:last-child { border-bottom: 1px solid rgba(200,157,96,.19); }
+.hobby-football { z-index: 2; background: #17271f; }
+.hobby-gaming { z-index: 1; background: #0c1915; }
+.hobby-panel-title {
+  position: absolute;
+  z-index: 6;
+  top: 46px;
+  left: 50%;
+  width: min(600px, 52vw);
+  transform: translateX(-50%);
+  text-align: center;
+  pointer-events: none;
+}
+.hobby-panel-number {
+  font-size: 10px;
+  color: var(--gold);
+  letter-spacing: 3px;
+}
+.hobby-panel-title h3 {
+  margin-top: 12px;
+  color: var(--cream);
+  font-family: "Cinzel", serif;
+  font-size: clamp(44px, 5.5vw, 76px);
+  line-height: 1.1;
+  font-weight: 500;
+}
+.hobby-description {
+  max-width: 540px;
+  margin: 23px auto 0;
+  color: rgba(238,230,213,.78);
+  font-family: "Inter", sans-serif;
+  font-size: clamp(13px, .98vw, 16px);
+  line-height: 1.9;
+  letter-spacing: .15px;
+  text-wrap: balance;
+}
+.hobby-art {
+  position: absolute;
+  inset: 0;
+  overflow: visible;
+  pointer-events: none;
+  z-index: 4;
+}
+/* =========================================================
+   HOBBYER V5 – flydende bevægelse og smooth hover
+   Position -> hover -> idle: hver effekt har sit eget lag.
+   Ingen pinde eller scroll-udløsning.
+========================================================= */
+.hobby-puppet {
+  position: absolute;
+  display: block;
+  width: max-content;
+  max-width: none;
+  height: auto;
+  pointer-events: auto;
+  cursor: default;
+  transform: none;
+  animation: none;
+  isolation: isolate;
+}
+
+/* Hover ligger på sit eget lag, ikke på det animerede element. */
+.puppet-assembly {
+  display: block;
+  position: relative;
+  width: max-content;
+  height: 100%;
+  transform: translate3d(0, 0, 0) scale(1);
+  transition: transform 950ms cubic-bezier(.22, 1, .36, 1);
+  will-change: transform;
+}
+.hobby-puppet:hover .puppet-assembly {
+  transform: translate3d(0, -19px, 0) scale(1.025);
+}
+
+/* Dette indre lag vipper altid, også når man holder musen over. */
+.puppet-motion {
+  display: block;
+  width: max-content;
+  height: 100%;
+  transform-origin: var(--pivot-x, 50%) 72%;
+  animation: hobby-idle var(--sway-time, 6.5s) ease-in-out infinite;
+  animation-delay: var(--motion-delay, 0s);
+  will-change: transform;
+}
+.hobby-image {
+  position: relative;
+  z-index: 2;
+  display: block;
+  width: auto;
+  height: 100%;
+  max-width: none;
+  object-fit: contain;
+  filter: drop-shadow(0 13px 12px rgba(0,0,0,.28));
+  transition: filter 950ms cubic-bezier(.22, 1, .36, 1);
+}
+.hobby-puppet:hover .hobby-image {
+  filter: drop-shadow(0 21px 16px rgba(0,0,0,.40));
+}
+
+/* Håndholdt, kontinuerlig bevægelse uden synkroniserede stop. */
+@keyframes hobby-idle {
+  0%, 100% { transform: translate3d(0, 1px, 0) rotate(-0.65deg); }
+  25% { transform: translate3d(1.2px, -1.5px, 0) rotate(0.55deg); }
+  50% { transform: translate3d(-1px, 0, 0) rotate(-0.4deg); }
+  75% { transform: translate3d(1px, -2px, 0) rotate(0.7deg); }
+}
+
+/* Den eksisterende størrelse og placering af alle seks figurer. */
+.image-player { left: -1.5%; top: -17%; height: 70%; --motion-delay: -.6s; --sway-time: 6.5s; --pivot-x: 65%; }
+.image-ball { left: 7%; top: 34%; height: 31%; --motion-delay: -2.2s; --sway-time: 5.5s; --pivot-x: 35%; }
+.image-trophy { left: 3%; bottom: 2%; height: 39%; --motion-delay: -1.8s; --sway-time: 7.2s; }
+.image-goalkeeper { right: -1%; top: -22%; height: 85%; --motion-delay: -3.2s; --sway-time: 6s; --pivot-x: 40%; }
+.image-goal { right: -1%; bottom: -3%; height: 60%; --motion-delay: -1.3s; --sway-time: 7.8s; }
+.image-boot { right: 14%; bottom: 4%; height: 29%; --motion-delay: -3.8s; --sway-time: 5.9s; }
+
+@media (max-width: 980px) {
+  .hobby-panel { height: clamp(490px, 65vh, 610px); }
+  .hobby-panel-title { width: min(500px, 55vw); }
+  .image-player { left: -6%; height: 62%; }
+  .image-goalkeeper { right: -7%; height: 73%; }
+  .image-goal { right: -4%; height: 51%; }
+  .image-ball { left: 8%; height: 25%; }
+  .image-trophy { height: 33%; }
+  .image-boot { right: 16%; height: 25%; }
+}
+@media (max-width: 750px) {
+  .about-hobbies { padding: 75px 0 100px; }
+  .about-hobbies > .about-section-heading { width: 88vw; margin-bottom: 60px; }
+  .hobby-panel { height: clamp(510px, 76svh, 660px); }
+  .hobby-panel-title { top: 135px; width: min(80vw, 400px); }
+  .hobby-panel-title h3 { font-size: clamp(35px, 9vw, 53px); }
+  .hobby-description { font-size: 13px; line-height: 1.7; margin-top: 15px; }
+  .image-player { left: -16%; top: -9%; height: 39%; }
+  .image-ball { left: 8%; top: 48%; height: 19%; }
+  .image-trophy { left: 2%; bottom: 1%; height: 25%; }
+  .image-goalkeeper { right: -22%; top: -12%; height: 44%; }
+  .image-goal { right: -13%; bottom: -3%; height: 30%; }
+  .image-boot { right: 16%; bottom: 10%; height: 17%; }
+  .hobby-puppet:hover .puppet-assembly { transform: translate3d(0,-11px,0) scale(1.015); }
+}
+
+
+/* =========================================================
+   V6 – PROFIL UDEN KORT FORTALT / HOBBYER-SIDEBLOK
+========================================================= */
+.about-page .profile-layout {
+  display: block;
+  width: min(1250px, 100%);
+  margin-inline: auto;
+}
+.about-page .profile-main { width: 100%; max-width: none; }
+.about-page .profile-lead {
+  max-width: 1050px;
+  font-size: clamp(22px, 2.2vw, 32px);
+  line-height: 1.55;
+}
+.about-page .profile-copy {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(24px, 5vw, 90px);
+  max-width: 1180px;
+}
+.about-page .profile-copy p:last-child { grid-column: auto; }
+.about-page .profile-highlights { max-width: 1180px; }
+
+/* Gamingfigurer – samme svævende animation og samme hoverlag som fodbold. */
+.gaming-controller {
+  left: -2%; top: 6%; height: 61%;
+  --motion-delay: -2.4s; --sway-time: 8.6s; --pivot-x: 45%;
+}
+.gaming-saber {
+  right: -1%; top: -17%; height: 77%;
+  --motion-delay: -3.7s; --sway-time: 9.3s; --pivot-x: 62%;
+}
+.gaming-creeper {
+  right: 4%; bottom: -5%; height: 42%;
+  --motion-delay: -1.8s; --sway-time: 8s; --pivot-x: 48%;
+}
+@media (max-width: 980px) {
+  .gaming-controller { left: -9%; top: 11%; height: 49%; }
+  .gaming-saber { right: -14%; top: -10%; height: 64%; }
+  .gaming-creeper { right: 2%; height: 35%; }
+}
+@media (max-width: 750px) {
+  .about-page .profile-copy { grid-template-columns: 1fr; }
+  .gaming-controller { left: -16%; top: 1%; height: 31%; }
+  .gaming-saber { right: -30%; top: -5%; height: 40%; }
+  .gaming-creeper { right: -6%; bottom: 0; height: 25%; }
+}
+
+/* =========================================================
+   KONTAKT – enkelt selvstændigt layout
+========================================================= */
+.contact-page { min-height: 100vh; background: var(--bg-dark); }
+.contact-main {
+  position: relative;
+  min-height: calc(100svh - 173px);
+  padding: clamp(85px, 12vh, 150px) 8vw 120px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+.contact-main::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 48%, rgba(33,74,57,.25),transparent 50%);
+  pointer-events: none;
+}
+.contact-inner { position: relative; z-index: 1; width: min(800px, 100%); text-align: center; }
+.contact-kicker { font-size: 11px; color: var(--gold); letter-spacing: 4px; text-transform: uppercase; }
+.contact-inner h1 { margin: 19px 0 24px; font-family: "Cinzel",serif; font-size: clamp(57px, 9vw, 112px); font-weight: 500; color: var(--cream); }
+.contact-inner > p { max-width: 610px; margin: 0 auto; color: var(--muted); line-height: 1.9; font-size: clamp(14px, 1.3vw, 17px); }
+.contact-actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 18px; margin: 43px 0 0; }
+.contact-action { padding: 17px 26px; border: 1px solid rgba(200,157,96,.38); color: var(--cream); font-size: 12px; letter-spacing: 1.6px; text-transform: uppercase; transition: background .35s ease, color .35s ease, transform .35s ease; }
+.contact-action:hover { background: rgba(200,157,96,.15); color: var(--gold); transform: translateY(-3px); }
+.contact-action.primary { background: var(--bronze); color: #07120e; }
+.contact-action.primary:hover { background: var(--gold); color: #07120e; }
+.contact-note { margin-top: 38px; font-size: 11px; color: var(--bronze); letter-spacing: .6px; }
+@media (max-width: 750px) { .contact-main { min-height: calc(100svh - 130px); padding: 80px 7vw; } .contact-actions { flex-direction: column; } }
+
+/* =========================================================
+   V7 – Sværd går ind over Fodbold-sektionen
+========================================================= */
+.about-hobbies .hobby-gaming { z-index: 5; }
+.about-hobbies .hobby-football { z-index: 4; }
+.about-hobbies .gaming-saber { top: -39%; z-index: 12; }
+@media (max-width: 980px) { .about-hobbies .gaming-saber { top: -31%; } }
+@media (max-width: 750px) { .about-hobbies .gaming-saber { top: -23%; right: -30%; } }
+
+/* =========================================================
+   V7 – Projektsider og kontaktside
+========================================================= */
+.project-category-page { background: var(--bg-dark); }
+.portfolio-listing { min-height: 75vh; padding: clamp(80px,9vw,140px) 6vw 120px; background: #04110e; }
+.listing-inner { width: min(1260px,100%); margin: auto; }
+.listing-kicker { color:var(--gold); font-size:11px; letter-spacing:3.5px; }
+.listing-heading { font: 500 clamp(46px,7vw,90px)/1.12 'Cinzel',serif; color:var(--cream); margin:18px 0 18px; }
+.listing-intro { color:var(--muted); max-width:720px; line-height:1.85; font-size:15px; }
+.listing-rule { height:1px; background:linear-gradient(90deg,var(--bronze),transparent); margin:56px 0 35px; opacity:.55; }
+.portfolio-project-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:22px; }
+.portfolio-project-card { display:flex; flex-direction:column; border:1px solid rgba(200,157,96,.2); background:linear-gradient(140deg,#101f19,#071610); overflow:hidden; transition:transform .5s cubic-bezier(.22,1,.36,1),border-color .5s; }
+.portfolio-project-card:hover { transform:translateY(-7px); border-color:rgba(200,157,96,.56); }
+.portfolio-project-visual { min-height:220px; aspect-ratio:16/9; display:grid; place-items:center; background:radial-gradient(circle at 35% 35%,#234034,#0b1b15 70%); border-bottom:1px solid rgba(200,157,96,.13); overflow:hidden; }
+.portfolio-project-visual img { width:100%; height:100%; object-fit:cover; }
+.portfolio-project-visual span { color:rgba(200,157,96,.52); font:500 clamp(30px,4vw,52px) 'Cinzel',serif; }
+.portfolio-project-content { padding:30px; flex:1; display:flex; flex-direction:column; gap:15px; }
+.portfolio-project-meta { color:var(--gold); font-size:10px; letter-spacing:2.5px; text-transform:uppercase; }
+.portfolio-project-card h2 { color:var(--cream); font:500 clamp(22px,2.4vw,31px) 'Cinzel',serif; }
+.portfolio-project-card p { color:var(--muted); line-height:1.8; font-size:13px; }
+.portfolio-project-tags { display:flex; flex-wrap:wrap; gap:7px; margin-top:auto; padding-top:12px; }
+.portfolio-project-tags span { border:1px solid rgba(200,157,96,.22); padding:7px 10px; color:var(--sand); text-transform:uppercase; letter-spacing:1px; font-size:9px; }
+.project-category-navigation { margin-top:55px; display:flex; gap:12px; flex-wrap:wrap; }
+.project-category-navigation a { border:1px solid rgba(200,157,96,.35); padding:13px 20px; color:var(--cream); font-size:12px; letter-spacing:1px; transition:background .3s; }
+.project-category-navigation a:hover { background:rgba(200,157,96,.15); }
+.project-category-navigation .current { background:rgba(200,157,96,.13); border-color:var(--bronze); }
+.contact-main { align-items:flex-start; }
+.contact-inner.contact-expanded { width:min(1050px,100%); }
+.contact-columns { display:grid;grid-template-columns:1.45fr .9fr;text-align:left;gap:32px;margin-top:48px; }
+.contact-form-box,.contact-social-box { background:#0b1c16; padding:clamp(22px,3vw,40px); border:1px solid rgba(200,157,96,.23); }
+.contact-form-box h2,.contact-social-box h2 { color:var(--cream);font:500 26px 'Cinzel',serif;margin-bottom:23px; }
+.contact-form { display:grid;gap:18px; }
+.contact-form label { display:grid;gap:8px;color:var(--sand);font-size:11px;text-transform:uppercase;letter-spacing:1.5px; }
+.contact-form input,.contact-form textarea { width:100%;border:1px solid rgba(200,157,96,.28);border-radius:0;background:#06140f;padding:14px 15px;color:var(--cream);font:400 14px 'Inter',sans-serif;outline:none; }
+.contact-form input:focus,.contact-form textarea:focus { border-color:var(--gold); }
+.contact-form textarea { resize:vertical;min-height:155px; }
+.contact-form button { cursor:pointer;border:1px solid var(--bronze);background:var(--bronze);color:#04110e;padding:15px;font:600 12px 'Inter',sans-serif;text-transform:uppercase;letter-spacing:2px;transition:background .35s,transform .35s; }
+.contact-form button:hover { background:var(--gold);transform:translateY(-2px); }
+.contact-smallprint { color:var(--muted);font-size:12px;line-height:1.75;margin-top:15px; }
+.contact-social-links { display:flex;flex-direction:column;gap:12px; }
+.contact-social-links a,.contact-social-links .social-disabled { display:flex;justify-content:space-between;align-items:center;padding:15px 17px;border:1px solid rgba(200,157,96,.23);color:var(--cream);font-size:13px;transition:background .3s,border-color .3s; }
+.contact-social-links a:hover { background:rgba(200,157,96,.1);border-color:var(--gold); }
+.contact-social-links .social-disabled { opacity:.47;cursor:not-allowed; }
+.contact-alert { padding:14px 16px;border:1px solid var(--bronze);margin-top:20px;color:var(--cream);font-size:13px;line-height:1.7; }
+.contact-alert.error { border-color:#a65c53; }
+.form-honeypot { position:absolute!important;left:-99999px!important;opacity:0!important; }
+@media(max-width:800px) { .portfolio-project-grid,.contact-columns { grid-template-columns:1fr; }.contact-main { padding:70px 5vw 100px; }.portfolio-listing { padding:75px 5vw 100px; } }
+@media(max-width:560px) { .portfolio-project-visual { min-height:165px; }.portfolio-project-content { padding:22px; }.listing-rule {margin:36px 0 25px;} }
+
+/* V8: Gaming-figurer – mere naturligt overlap mellem de to paneler.
+   Placeres efter tidligere media queries for at overskrive dem. */
+@media (min-width: 981px) {
+  .about-hobbies .gaming-saber { top: -24%; }
+  .about-hobbies .gaming-creeper { bottom: 8%; }
+}
+@media (min-width: 751px) and (max-width: 980px) {
+  .about-hobbies .gaming-saber { top: -20%; }
+  .about-hobbies .gaming-creeper { bottom: 7%; }
+}
+@media (max-width: 750px) {
+  .about-hobbies .gaming-saber { top: -14%; }
+  .about-hobbies .gaming-creeper { bottom: 7%; }
+}
+
+/* Tilgængelig overskrift på forsiden samt tastatur-adgang til dropdown */
+.visually-hidden { position:absolute!important; width:1px!important; height:1px!important; padding:0!important; margin:-1px!important; overflow:hidden!important; clip:rect(0,0,0,0)!important; white-space:nowrap!important; border:0!important; }
+.nav-dropdown:focus-within .dropdown-menu { opacity:1; visibility:visible; transform:translateX(-50%) translateY(0); }
+:where(a,button,input,textarea):focus-visible { outline:2px solid var(--gold); outline-offset:4px; }

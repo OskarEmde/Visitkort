@@ -1,0 +1,19 @@
+# Editor og operativsystem
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Lokale miljøfiler / hemmeligheder
+.env
+.env.*
+!.env.example
+*.log
+
+# Pakker og build-output
+node_modules/
+dist/
+build/
+
+# Midlertidige arkiver
+*.zip
