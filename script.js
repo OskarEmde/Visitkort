@@ -116,37 +116,6 @@ if (particleContainer) {
 
 
 /* =========================================================
-   VIDEO SIDEORNAMENTER
-   Mål det synlige videobillede (object-fit: contain), så træerne
-   kun tegnes på de frie sider og forsvinder uden plads.
-========================================================= */
-function updateHeroSideOrnaments() {
-    const hero = document.querySelector('.hero');
-    const video = document.querySelector('#heroVideo');
-    if (!hero || !video) return;
-
-    const box = video.getBoundingClientRect();
-    const vw = video.videoWidth;
-    const vh = video.videoHeight;
-    if (!vw || !vh || !box.width || !box.height) {
-        hero.style.setProperty('--video-side-space', '0px');
-        return;
-    }
-
-    const displayedWidth = Math.min(box.width, box.height * (vw / vh));
-    const freeSide = Math.max(0, (box.width - displayedWidth) / 2);
-    // Undgå at vise ornamenter på meget smalle sider.
-    hero.style.setProperty('--video-side-space', freeSide >= 34 ? `${freeSide}px` : '0px');
-}
-
-const sideOrnamentVideo = document.querySelector('#heroVideo');
-sideOrnamentVideo?.addEventListener('loadedmetadata', updateHeroSideOrnaments);
-window.addEventListener('resize', updateHeroSideOrnaments, { passive: true });
-window.addEventListener('orientationchange', updateHeroSideOrnaments);
-updateHeroSideOrnaments();
-
-
-/* =========================================================
    HERO LYD
 ========================================================= */
 const heroVideo = document.querySelector("#heroVideo");
@@ -180,6 +149,37 @@ if (heroVideo && heroSoundButton) {
     });
 
     updateSoundButton();
+}
+
+
+/* =========================================================
+   FORSIDE VIDEO – klik på videoområdet for pause/afspil
+   Ingen permanent synlig pauseknap.
+========================================================= */
+const heroPlayArea = document.querySelector('#heroPlayArea');
+if (heroPlayArea && heroVideo) {
+    let feedbackTimer;
+    function updateHeroPlaybackUI() {
+        const paused = heroVideo.paused;
+        heroPlayArea.classList.toggle('is-paused', paused);
+        heroPlayArea.setAttribute('aria-label', paused ? 'Afspil video' : 'Sæt video på pause');
+        heroPlayArea.setAttribute('aria-pressed', String(paused));
+    }
+    heroPlayArea.addEventListener('click', async () => {
+        try {
+            if (heroVideo.paused) await heroVideo.play();
+            else heroVideo.pause();
+        } catch (error) {
+            console.warn('Videoen kunne ikke afspilles:', error);
+        }
+        updateHeroPlaybackUI();
+        heroPlayArea.classList.add('show-feedback');
+        clearTimeout(feedbackTimer);
+        feedbackTimer = setTimeout(() => heroPlayArea.classList.remove('show-feedback'), 900);
+    });
+    heroVideo.addEventListener('play', updateHeroPlaybackUI);
+    heroVideo.addEventListener('pause', updateHeroPlaybackUI);
+    updateHeroPlaybackUI();
 }
 
 

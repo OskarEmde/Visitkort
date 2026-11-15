@@ -4221,3 +4221,585 @@ body, .about-page { background-color: var(--bg-dark); }
 @media (prefers-reduced-motion: reduce) {
   .video-side-ornament { transition: none; }
 }
+
+
+/* =========================================================
+   SLOT-PORT / FORSIDE – 13. NOVEMBER
+   Ligger oven over hero, og stikker op gennem navigationen.
+   Juster --castle-top og --castle-height-offset efter behov.
+========================================================= */
+body:not(.about-page) { --castle-top: 52px; }
+
+.castle-hero-frame {
+  position: absolute;
+  left: 0;
+  top: var(--castle-top);
+  width: 100%;
+  height: calc(100dvh - var(--castle-top));
+  z-index: 48;
+  pointer-events: none;
+  overflow: visible;
+}
+.castle-hero-frame img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  user-select: none;
+}
+/* Navigationen bliver liggende øverst og alle links forbliver aktive. */
+.top-navigation { z-index: 50; }
+/* Heroens indhold ligger inde i porten. */
+.hero { isolation: auto; }
+.hero-video {
+  inset: auto;
+  left: 50%;
+  top: 11%;
+  transform: translateX(-50%);
+  width: 69%;
+  height: 84%;
+  object-fit: contain;
+}
+/* Mørke sidestykker og den gamle trægrafik er ikke længere nødvendige. */
+.video-side-ornament { display: none !important; }
+/* Lydknappen og CTA skal stadig kunne klikkes selv om rammen ligger foran. */
+.hero-sound-button, .hero-content, .hero-scroll { z-index: 60; }
+
+@media (max-width: 1000px) {
+  .castle-hero-frame { top: 83px; height: calc(100dvh - 83px); }
+  .hero-video { width: 76%; height: 78%; top: 15%; }
+}
+@media (max-width: 750px) {
+  /* På mobil bliver porten i selve heroen for ikke at overdække nav/menu. */
+  .castle-hero-frame { top: 147px; height: calc(100dvh - 147px); z-index: 4; }
+  .hero-video { width: 78%; height: 70%; top: 18%; }
+  .hero-sound-button { z-index: 60; }
+}
+
+
+/* =========================================================
+   SLOT-PORT V2 – større og FORAN menubaren
+   Testversion: mere sten i siderne og højere tårne.
+========================================================= */
+body:not(.about-page) {
+  --castle-top: -12px;
+}
+body:not(.about-page) .castle-hero-frame {
+  left: -7%;
+  top: var(--castle-top);
+  width: 114%;
+  height: calc(100dvh + 22px);
+  z-index: 80; /* foran både menu og header */
+  pointer-events: none; /* menulinks kan stadig klikkes */
+}
+body:not(.about-page) .castle-hero-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+/* Hold brugerfladeelementerne oven på den dekorative port. */
+body:not(.about-page) .menu-toggle { z-index: 1000; }
+body:not(.about-page) .hero-sound-button,
+body:not(.about-page) .hero-content,
+body:not(.about-page) .hero-scroll { z-index: 85; }
+
+@media (max-width: 1000px) {
+  body:not(.about-page) .castle-hero-frame {
+    left: -9%;
+    width: 118%;
+    top: 0;
+    height: calc(100dvh + 10px);
+  }
+}
+@media (max-width: 750px) {
+  /* Mobil: undgå at dække hele den smalle navigation. */
+  body:not(.about-page) .castle-hero-frame {
+    left: -16%;
+    width: 132%;
+    top: 145px;
+    height: calc(100dvh - 145px);
+    z-index: 4;
+  }
+}
+
+/* =========================================================
+   SLOT-PORT V3 – sten under navigation og nederst over næste sektion
+   Rediger kun disse regler ved finjustering.
+========================================================= */
+@media (min-width: 751px) {
+  body:not(.about-page) .castle-hero-frame {
+    top: 14px;                 /* 26 px lavere end den gamle -12px */
+    height: calc(100dvh + 43px); /* bundstenene rækker ned i næste sektion */
+    z-index: 80;
+  }
+  /* Navigationsteksten ligger synligt OVENPÅ murens øverste sten.
+     Den grønne menuplade fjernes helt. */
+  body:not(.about-page) .top-navigation {
+    z-index: 92;
+    background: transparent !important;
+    border: 0;
+    min-height: 58px;
+    pointer-events: none;
+  }
+  body:not(.about-page) .top-navigation > a,
+  body:not(.about-page) .top-navigation .nav-dropdown,
+  body:not(.about-page) .top-navigation button { pointer-events: auto; }
+  body:not(.about-page) .top-navigation > a,
+  body:not(.about-page) .nav-project-button {
+    color: #19211c;
+    font-weight: 600;
+    text-shadow: 0 1px 0 rgba(255,255,255,.55);
+  }
+  body:not(.about-page) .top-navigation > a:hover,
+  body:not(.about-page) .top-navigation > a.active,
+  body:not(.about-page) .nav-project-button:hover { color: #38582b; }
+}
+body:not(.about-page) .hero { height: calc(100dvh - 173px + 43px); min-height: 0; }
+body:not(.about-page) .hero-content {
+  bottom: 85px;
+  width: max-content;
+  max-width: calc(100% - 60px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  z-index: 96;
+}
+body:not(.about-page) .hero-button { margin: 0; padding: 9px 4px; }
+body:not(.about-page) .hero-sound-button {
+  position: static;
+  min-width: 114px;
+  min-height: 38px;
+  height: auto;
+  width: auto;
+  padding: 9px 14px;
+  z-index: auto;
+}
+body:not(.about-page) .hero-scroll { display: none !important; }
+/* Klikfladen dækker videoens centrum, men ikke CTA eller menuerne. */
+body:not(.about-page) .hero-play-area {
+  position: absolute;
+  z-index: 83;
+  inset: 9% 19% 16%;
+  display: grid;
+  place-items: center;
+  appearance: none;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  color: white;
+}
+body:not(.about-page) .hero-play-area:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: -8px;
+}
+.hero-play-feedback {
+  display: grid;
+  place-items: center;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,.55);
+  background: rgba(3,14,11,.75);
+  font-size: 28px;
+  opacity: 0;
+  transform: scale(.87);
+  transition: opacity .22s ease, transform .22s ease;
+  pointer-events: none;
+}
+.hero-play-area.show-feedback .hero-play-feedback { opacity: 1; transform: scale(1); }
+.hero-play-area.is-paused .hero-play-feedback::after { content: '▶'; margin-left: 4px; }
+.hero-play-area:not(.is-paused) .hero-play-feedback::after { content: 'Ⅱ'; }
+@media (max-width: 1000px) and (min-width: 751px) {
+  body:not(.about-page) .castle-hero-frame { top: 14px; height: calc(100dvh + 43px); }
+}
+@media (max-width: 750px) {
+  body:not(.about-page) .hero { height: calc(100dvh - 147px + 10px); }
+  body:not(.about-page) .hero-content { bottom: 25px; gap: 8px; }
+  body:not(.about-page) .hero-sound-button { min-width: 42px; padding: 8px 12px; }
+  body:not(.about-page) .hero-play-area { inset: 20% 12% 21%; }
+}
+
+/* =========================================================
+   SLOT-PORT V4 – præcis bundlinje og læsbar navigation
+   Hero beholder den oprindelige viewport-højde.
+========================================================= */
+@media (min-width: 751px) {
+  /* Slottets nederste sten og næste sektions start flugter med
+     skærmens nederste kant – ingen ekstra hero-højde. */
+  body:not(.about-page) .hero {
+    height: calc(100vh - 173px);
+    height: calc(100dvh - 173px);
+    min-height: 0;
+  }
+  body:not(.about-page) .castle-hero-frame {
+    top: 14px;
+    height: calc(100vh - 14px);
+    height: calc(100dvh - 14px);
+  }
+
+  /* Giv de fire navigationspunkter tydelige, diskrete
+     knapper oven på broens flade stenrække. */
+  body:not(.about-page) .top-navigation {
+    background: transparent !important;
+    border: 0;
+    z-index: 92;
+    gap: clamp(14px, 3.25vw, 60px);
+    pointer-events: none;
+  }
+  body:not(.about-page) .top-navigation > a,
+  body:not(.about-page) .top-navigation .nav-dropdown {
+    transform: translateY(70px);
+    pointer-events: auto;
+  }
+  body:not(.about-page) .top-navigation > a,
+  body:not(.about-page) .top-navigation .nav-project-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 34px;
+    padding: 9px 17px;
+    border: 1px solid rgba(210, 180, 123, .72);
+    border-radius: 6px;
+    background: rgba(9, 27, 22, .94);
+    box-shadow: 0 3px 8px rgba(0,0,0,.40), inset 0 1px 0 rgba(255,255,255,.08);
+    color: #f1e8d4;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.7px;
+    text-shadow: 0 1px 2px rgba(0,0,0,.7);
+    transition: background .2s ease, border-color .2s ease, box-shadow .2s ease;
+  }
+  body:not(.about-page) .top-navigation > a:hover,
+  body:not(.about-page) .top-navigation > a.active,
+  body:not(.about-page) .top-navigation .nav-project-button:hover {
+    background: rgba(30, 64, 44, .98);
+    border-color: #d3b47c;
+    color: #fff3d9;
+    box-shadow: 0 3px 11px rgba(0,0,0,.5), inset 0 0 0 1px rgba(209,179,119,.1);
+  }
+  body:not(.about-page) .top-navigation > a::after,
+  body:not(.about-page) .top-navigation .nav-project-button::after {
+    display: none;
+  }
+  /* Dropdown skal blive under projektknappen. */
+  body:not(.about-page) .top-navigation .dropdown-menu {
+    z-index: 110;
+  }
+}
+
+/* Samme regel på mobil: port og sektionsskel skal ende samtidigt.
+   Behold den almindelige mobile navigation frem for at lægge
+   knapper oven på de for små sten. */
+@media (max-width: 750px) {
+  body:not(.about-page) .hero {
+    height: calc(100vh - 147px);
+    height: calc(100dvh - 147px);
+    min-height: 0;
+  }
+  body:not(.about-page) .castle-hero-frame {
+    height: calc(100vh - 145px);
+    height: calc(100dvh - 145px);
+  }
+}
+
+
+/* =========================================================
+   SLOT-PORT V5 – ens skovgrøn, bundsten til viewport-kant,
+   lydknappen uændret og Udforsk-knappen nedenunder.
+   Vi ændrer ikke hero-sektionens højde.
+========================================================= */
+:root { --castle-unified-green: #081b15; }
+body:not(.about-page),
+body:not(.about-page) .main-header,
+body:not(.about-page) .hero,
+body:not(.about-page) .project-showcase {
+  background: var(--castle-unified-green);
+}
+/* Brug en fælles baggrund bag menuen og slottet uden grønne farveskift. */
+body:not(.about-page) .top-navigation { background: transparent !important; }
+@media (min-width: 751px) {
+  /* Rammens nederste sten flyttes ca. 20 px ned, mens sektionsgrænsen
+     forbliver præcis nederst i viewporten ved første visning. */
+  body:not(.about-page) .castle-hero-frame {
+    top: 34px;
+    height: calc(100dvh - 14px);
+  }
+  /* Lydknappen bliver hvor den var, men Udforsk flyttes nedenunder. */
+  body:not(.about-page) .hero-content { bottom: 40px; }
+}
+/* Ingen separat underliggende farveflade foran videoens sideområder. */
+body:not(.about-page) .hero-video { background: transparent; }
+
+/* =========================================================
+   SLOT-PORT V6 — navigation over broen, video til bund og
+   ensfarvet 3D-karrusel uden mørke sidefelter.
+   Disse overrides gælder kun forsiden.
+========================================================= */
+@media (min-width: 751px) {
+  /* Menuknapper mellem stregen under navnet og slottets takker. */
+  body:not(.about-page) .top-navigation > a,
+  body:not(.about-page) .top-navigation .nav-dropdown {
+    transform: translateY(-12px);
+  }
+
+  /* Udfyld portåbningens højde frem til nederste stenrække.
+     cover udfylder uden sorte bånd, men kan beskære videoen en smule. */
+  body:not(.about-page) .hero-video {
+    left: 50%;
+    top: 64px;
+    width: 67%;
+    height: calc(100% - 64px);
+    transform: translateX(-50%);
+    object-fit: cover;
+    object-position: center center;
+  }
+}
+
+/* Fjern de mørke gradientpaneler ved begge karruselpile. */
+body:not(.about-page) .carousel-fade,
+body:not(.about-page) .carousel-fade-left,
+body:not(.about-page) .carousel-fade-right {
+  display: none !important;
+  background: none !important;
+}
+/* Samme skovgrønne grundfarve bag hele karussellen. */
+body:not(.about-page) .gothic-carousel-shell,
+body:not(.about-page) .gothic-carousel {
+  background: transparent;
+}
+
+@media (max-width: 750px) {
+  /* Undgå at beskære hele mobilvideoen for at fylde en smal port. */
+  body:not(.about-page) .hero-video {
+    width: 78%;
+    top: 15%;
+    height: 82%;
+    object-fit: contain;
+  }
+}
+
+/* =========================================================
+   SLOT-PORT V8 – MOBIL: klip broen væk, kun sidemure.
+   Desktop påvirkes ikke. Alle mål kan justeres her.
+========================================================= */
+@media (max-width: 750px) {
+  body:not(.about-page) {
+    --mobile-castle-header: 147px; /* header + mobilnavigation */
+    --mobile-castle-stone: 10px; /* frihold nederste stenkant */
+  }
+
+  /* Hero slutter præcis i viewportens bund, så skillelinjen
+     starter umiddelbart under portens nederste stenrække. */
+  body:not(.about-page) .hero {
+    height: calc(100vh - var(--mobile-castle-header));
+    height: calc(100dvh - var(--mobile-castle-header));
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  /* Frame er et udsnitsvindue: borgens top er uden for vinduet,
+     men billedets bundsten holdes fast ved heroens nederste kant. */
+  body:not(.about-page) .castle-hero-frame {
+    position: absolute;
+    top: var(--mobile-castle-header);
+    left: -16%;
+    width: 132%;
+    height: calc(100vh - var(--mobile-castle-header));
+    height: calc(100dvh - var(--mobile-castle-header));
+    overflow: hidden;
+    z-index: 55;
+    pointer-events: none;
+  }
+  body:not(.about-page) .castle-hero-frame img {
+    position: absolute;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 185%; /* klip øverste ca. 46 % væk */
+    max-width: none;
+    object-fit: fill;
+    transform: none;
+  }
+
+  /* Selve videoen er synlig helt fra navigationslinjen
+     til lige over slottets bundsten. På den smalle mobilflade
+     beskærer cover siderne af videobilledet (ikke proportioner). */
+  body:not(.about-page) .hero-video {
+    position: absolute;
+    inset: auto;
+    top: 0;
+    bottom: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 82%;
+    height: calc(100% - var(--mobile-castle-stone));
+    object-fit: cover;
+    object-position: center center;
+    background: transparent;
+    z-index: 0;
+  }
+
+  /* Styring forbliver synlig inden for de nederste sten. */
+  body:not(.about-page) .hero-content {
+    bottom: 32px;
+    gap: 8px;
+    z-index: 96;
+  }
+  body:not(.about-page) .hero-play-area {
+    inset: 3% 13% 22%;
+    z-index: 83;
+  }
+
+  /* Adskillelsesstregen flugter med slutningen af heroen. */
+  body:not(.about-page) .project-showcase {
+    margin-top: 0;
+    position: relative;
+  }
+  body:not(.about-page) .project-showcase::before {
+    top: 0;
+  }
+}
+
+
+/* =========================================================
+   SLOT-PORT V9 – MOBIL: fuldbredde-video + KUN STENBROEN
+   Desktop er uændret. Billedet borgbro-mobil.png er et udsnit
+   af den originale borgport, ikke en ny illustration.
+========================================================= */
+@media (max-width: 750px) {
+  :root {
+    --mobile-bridge-height: clamp(92px, 28vw, 132px);
+  }
+
+  /* Fjern hele den gamle borgport med tårne på mobil. */
+  body:not(.about-page) .castle-hero-frame {
+    display: none !important;
+  }
+
+  /* Behold heroens enkle mobilhøjde og den gule streg i bunden. */
+  body:not(.about-page) .hero {
+    position: relative;
+    height: calc(100dvh - 147px);
+    min-height: 0;
+    overflow: hidden;
+    background: var(--castle-unified-green, #081b15);
+  }
+
+  /* Videoen starter UNDER stenbroen, fylder hele bredden,
+     og bruger contain så den ikke zoomer voldsomt ind. */
+  body:not(.about-page) .hero-video {
+    position: absolute;
+    top: var(--mobile-bridge-height) !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 100% !important;
+    height: calc(100% - var(--mobile-bridge-height)) !important;
+    max-width: none;
+    transform: none !important;
+    object-fit: contain;
+    object-position: center top;
+    background: var(--castle-unified-green, #081b15);
+    z-index: 0;
+  }
+
+  /* Et grønt felt skjuler alt over broen, så videoen ikke kan ses der. */
+  body:not(.about-page) .hero::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: calc(var(--mobile-bridge-height) + 1px);
+    background: var(--castle-unified-green, #081b15);
+    z-index: 46;
+    pointer-events: none;
+  }
+
+  /* Stenbroen er lidt større end skærmen, så siderne ikke bliver klippet. */
+  body:not(.about-page) .hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 108%;
+    height: var(--mobile-bridge-height);
+    transform: translateX(-50%);
+    background-image: url("assets/images/borgbro-mobil.png");
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: 100% 100%;
+    z-index: 47;
+    pointer-events: none;
+  }
+
+  /* Knapper skal ligge nederst over videoen. */
+  body:not(.about-page) .hero-content {
+    position: absolute;
+    bottom: 22px;
+    z-index: 96;
+  }
+
+  body:not(.about-page) .hero-play-area {
+    inset: var(--mobile-bridge-height) 0 20%;
+    z-index: 83;
+  }
+}
+
+
+/* =========================================================
+   V11 – MOBIL: video direkte under broen og ingen tom hero-bund.
+   Desktop er uændret. Videoen beholder sit 16:9-format.
+========================================================= */
+@media (max-width: 750px) {
+  :root {
+    --mobile-video-height: 56.25vw; /* 16:9 i skærmens fulde bredde */
+    --mobile-controls-height: 86px;
+  }
+
+  body:not(.about-page) .hero {
+    height: calc(var(--mobile-bridge-height) + var(--mobile-video-height) + var(--mobile-controls-height)) !important;
+    min-height: 0 !important;
+    max-height: none;
+  }
+
+  /* Video starter lidt bag stenbuen; broen dækker den øverste kant. */
+  body:not(.about-page) .hero-video {
+    top: calc(var(--mobile-bridge-height) - 14px) !important;
+    bottom: auto !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100% !important;
+    height: var(--mobile-video-height) !important;
+    object-fit: contain !important;
+    object-position: center top !important;
+    background: transparent !important;
+  }
+
+  /* Maskér kun det øverste felt bag stentakkerne. */
+  body:not(.about-page) .hero::after {
+    height: calc(var(--mobile-bridge-height) - 14px) !important;
+  }
+
+  /* Stenbroens udseende og bredde fra V10 er uændret. */
+  body:not(.about-page) .hero-content {
+    bottom: 9px !important;
+    gap: 3px;
+    z-index: 96;
+  }
+  body:not(.about-page) .hero-sound-button {
+    min-height: 34px;
+    padding: 6px 12px;
+  }
+  body:not(.about-page) .hero-button {
+    padding: 6px 4px;
+  }
+  body:not(.about-page) .hero-play-area {
+    inset: calc(var(--mobile-bridge-height) - 14px) 0 var(--mobile-controls-height) !important;
+  }
+  body:not(.about-page) .project-showcase {
+    margin-top: 0 !important;
+  }
+}
